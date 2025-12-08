@@ -1,10 +1,10 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-export default function App() {
+export default function Portfolio() {
   return (
     <Router>
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900">
+        {/* NAVBAR */}
         <nav className="w-full shadow bg-white/80 backdrop-blur sticky top-0 z-50">
           <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
             <h1 className="text-2xl font-bold tracking-tight">Vignesh Balaji Kumar</h1>
@@ -17,6 +17,7 @@ export default function App() {
           </div>
         </nav>
 
+        {/* ROUTES */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/research" element={<Research />} />
@@ -36,7 +37,9 @@ function Home() {
           Emerging Scientist in <span className="text-blue-600">Computational Materials</span>
         </h2>
         <p className="text-xl text-gray-700">
-          I explore the intersection of AI, quantum chemistry, and materials discovery. My research focuses on accelerating functional material prediction and design using machine learning and high‑performance simulations.
+          I explore the intersection of AI, quantum chemistry, and materials discovery.
+          My research focuses on accelerating functional material prediction and design
+          using machine learning and high‑performance simulations.
         </p>
         <Link
           to="/research"
