@@ -36,6 +36,7 @@ function Home() {
           Emerging Scientist in <span className="text-blue-600">Computational Materials</span>
         </h2>
         <p className="text-xl text-gray-700">
+	  I am a reseacher and scientific software developer. My field of research is computational material science with primary focus on developing methods for density functional theory.  
           I explore the intersection of AI, quantum chemistry, and materials discovery. My research focuses on accelerating functional material prediction and design using machine learning and high‑performance simulations.
         </p>
         <Link
