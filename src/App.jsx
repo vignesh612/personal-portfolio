@@ -7,7 +7,7 @@ export default function Portfolio() {
         {/* NAVBAR */}
         <nav className="w-full shadow bg-white/80 backdrop-blur sticky top-0 z-50">
           <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
-            <h1 className="text-2xl font-bold tracking-tight">Dr. Your Name</h1>
+            <h1 className="text-2xl font-bold tracking-tight">Vignesh Balaji Kumar</h1>
             <div className="flex gap-6 text-lg">
               <Link to="/" className="hover:text-blue-600">Home</Link>
               <Link to="/research" className="hover:text-blue-600">Research</Link>
