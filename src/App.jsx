@@ -1,4 +1,4 @@
-import profilePic from "./assets/profile.jpg";
+import profilePic from "./assets/ph3.png";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
