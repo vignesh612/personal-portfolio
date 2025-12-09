@@ -1,3 +1,4 @@
+import profilePic from "./assets/profile.jpg";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
@@ -66,10 +67,14 @@ function Home() {
         </Link>
       </div>
 
-      {/* Hero Graphic */}
       <div className="flex justify-center">
-        <div className="w-80 h-80 rounded-3xl bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 shadow-xl transform rotate-3"></div>
+         <img 
+            src={profilePic} 
+            alt="Profile"
+            className="w-72 h-72 object-cover rounded-full shadow-xl border-4 border-white"
+         />
       </div>
+
 
     </div>
   );
