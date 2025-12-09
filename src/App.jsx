@@ -90,8 +90,8 @@ function Research() {
 
       <div className="grid lg:grid-cols-2 gap-10">
         <ResearchCard
-          title="AI-Driven Materials Discovery"
-          desc="Developing machine learning models to accelerate prediction of electronic,
+          title="Agentic AI and Scientific software developer"
+          desc="Developing tools that connects traditional scientific computations with the cutting edge agentic AI workflows,
           structural, and thermodynamic properties."
         />
         <ResearchCard
@@ -105,8 +105,8 @@ function Research() {
           pipelines for materials data."
         />
         <ResearchCard
-          title="Generative Models for Materials"
-          desc="Exploring foundation models to design molecules, crystals, and microstructures."
+          title="AI4Science "
+          desc="Exploring the intersection of AI and computational material science"
         />
       </div>
     </div>
