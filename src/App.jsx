@@ -243,9 +243,13 @@ function Gallery() {
 ======================= */
 function News() {
   const updates = [
-    { date: "Sep 2018", text: "Joined Indian Institute of Science Education and Research, Tirupati as Research Fellow." },
-    { date: "March 2020", text: "Joined Indian Institute of Science Education and Research, Bhopal as Junior Research Fellow." },
-    { date: "Sept 2021", text: "Joined the Institute of Physics, Nicolaus Copernicus University in Torun as a Doctoral Candidate" },
+    { date: "June 2024", text:   "Received the Rectors award for scientific achievement from the Rector of Nicolaus Copernicus University in Torun." },
+    { date: "March 2024", text:  "Received the Nawa scholarchip to implement internship at the Xiamen Unievrsity in China" },
+    { date: "Sept 2021", text:   "Joined the Institute of Physics, Nicolaus Copernicus University in Torun as a Doctoral Candidate" },
+    { date: "March 2020", text:  "Joined Indian Institute of Science Education and Research, Bhopal as Junior Research Fellow." },
+    { date: "June 2019", text:   "Qualified the Graduate Aptitute Test in Engineering(GATE-2019) in Physics conducted by the Governemnt of India" },
+    { date: "Sep 2018", text:    "Joined Indian Institute of Science Education and Research, Tirupati as Research Fellow." },
+
   ];
 
   return (
