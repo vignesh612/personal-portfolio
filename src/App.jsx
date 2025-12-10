@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import img1 from "./assets/gallery/img1.jpg";
 import img2 from "./assets/gallery/img2.jpg";
 import img3 from "./assets/gallery/img3.jpg";
+import img4 from "./assets/gallery/img4.jpg";
+import img5 from "./assets/gallery/img5.jpg";
+import img6 from "./assets/gallery/img6.jpg";
 
 export default function App() {
   return (
@@ -151,27 +154,55 @@ function Publications() {
       GALLERY PAGE
 ======================= */
 function Gallery() {
-  const photos = [
-    { src: img1, title: "Conference – 2024" },
-    { src: img2, title: "Workshop – 2023" },
-    { src: img3, title: "Research Presentation – 2022" },
+  const galleryEvents = [
+    {
+      event: "Conference 2024",
+      photos: [
+        { src: img1, caption: "Talk Session – Day 1" },
+        { src: img2, caption: "Poster Presentation" },
+        { src: img3, caption: "Networking Event" },
+        { src: img4, caption: "Closing Ceremony" },
+      ]
+    },
+    {
+      event: "Workshop 2023",
+      photos: [
+        { src: img5, caption: "Invited Lecture" },
+        { src: img6, caption: "Hands-on Session" },
+      ]
+    }
   ];
 
   return (
     <div className="max-w-6xl mx-auto px-8 py-20">
       <h2 className="text-4xl font-bold tracking-tight mb-12">Gallery</h2>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {photos.map((p, i) => (
-          <div key={i} className="rounded-xl overflow-hidden shadow hover:shadow-xl transition">
-            <img src={p.src} alt={p.title} className="w-full h-64 object-cover" />
-            <div className="p-4 text-center text-gray-700 font-medium">{p.title}</div>
+      <div className="space-y-16">
+        {galleryEvents.map((event, idx) => (
+          <div key={idx}>
+            <h3 className="text-3xl font-semibold mb-6">{event.event}</h3>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {event.photos.map((photo, i) => (
+                <div key={i} className="rounded-xl overflow-hidden shadow hover:shadow-xl transition">
+                  <img
+                    src={photo.src}
+                    alt={photo.caption}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="p-4 text-center text-gray-700 font-medium">
+                    {photo.caption}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
     </div>
   );
 }
+
 
 /* =======================
       NEWS PAGE
