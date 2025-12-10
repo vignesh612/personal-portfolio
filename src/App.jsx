@@ -4,12 +4,18 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 
 // Gallery Images
+
 import img1 from "./assets/gallery/img1.jpg";
 import img2 from "./assets/gallery/img2.jpg";
 import img3 from "./assets/gallery/img3.jpg";
 import img4 from "./assets/gallery/img4.jpg";
 import img5 from "./assets/gallery/img5.jpg";
 import img6 from "./assets/gallery/img6.jpg";
+
+import gv_1 from "./assets/gallery/google_summit/1.jpg";
+import gv_2 from "./assets/gallery/google_summit/2.jpg";
+import gv_3 from "./assets/gallery/google_summit/3.jpg";
+import gv_4 from "./assets/gallery/google_summit/4.jpg";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -195,6 +201,15 @@ function Publications() {
 function Gallery() {
   const galleryEvents = [
     {
+      event: "Google Summit Warsaw 2025",
+      photos: [
+        { src: gv_1, caption: "Welcome" },
+        { src: gv_2, caption: "Beautiful Office" },
+        { src: gv_3, caption: "Google Poland" },
+        { src: gv_4, caption: "My Badge" },
+      ],
+    },
+    {
       event: "Conference 2024",
       photos: [
         { src: img1, caption: "Talk Session – Day 1" },
@@ -203,6 +218,25 @@ function Gallery() {
         { src: img4, caption: "Closing Ceremony" },
       ],
     },
+    {
+      event: "Conference 2024",
+      photos: [
+        { src: img1, caption: "Talk Session – Day 1" },
+        { src: img2, caption: "Poster Presentation" },
+        { src: img3, caption: "Networking Event" },
+        { src: img4, caption: "Closing Ceremony" },
+      ],
+    },
+    {
+      event: "Conference 2024",
+      photos: [
+        { src: img1, caption: "Talk Session – Day 1" },
+        { src: img2, caption: "Poster Presentation" },
+        { src: img3, caption: "Networking Event" },
+        { src: img4, caption: "Closing Ceremony" },
+      ],
+    },
+
     {
       event: "Workshop 2023",
       photos: [
