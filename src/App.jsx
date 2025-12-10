@@ -17,6 +17,14 @@ import gv_2 from "./assets/gallery/google_summit/2.jpg";
 import gv_3 from "./assets/gallery/google_summit/3.jpg";
 import gv_4 from "./assets/gallery/google_summit/4.jpg";
 
+import xi_1 from "./assets/gallery/xiamen/1.jpg";
+import xi_2 from "./assets/gallery/xiamen/2.jpg";
+import xi_3 from "./assets/gallery/xiamen/3.jpg";
+import xi_4 from "./assets/gallery/xiamen/4.jpg";
+
+
+
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -210,12 +218,12 @@ function Gallery() {
       ],
     },
     {
-      event: "Conference 2024",
+      event: "AI Internship at Xiamen University, China",
       photos: [
-        { src: img1, caption: "Talk Session – Day 1" },
-        { src: img2, caption: "Poster Presentation" },
-        { src: img3, caption: "Networking Event" },
-        { src: img4, caption: "Closing Ceremony" },
+        { src: xi_1, caption: "Gulangyu Island Visit" },
+        { src: xi_2, caption: "Group Hile with Prof Pavlo" },
+        { src: xi_3, caption: "South Putao Temple" },
+        { src: xi_4, caption: "The beautifull Xiamen University" },
       ],
     },
     {
