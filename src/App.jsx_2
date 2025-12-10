@@ -2,11 +2,6 @@ import profilePic from "./assets/ph3.png";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-// Example Gallery Imports (add your real images)
-import img1 from "./assets/gallery/img1.jpg";
-import img2 from "./assets/gallery/img2.jpg";
-import img3 from "./assets/gallery/img3.jpg";
-
 export default function App() {
   return (
     <Router>
@@ -20,8 +15,6 @@ export default function App() {
               <Link to="/" className="hover:text-blue-600 transition">Home</Link>
               <Link to="/research" className="hover:text-blue-600 transition">Research</Link>
               <Link to="/publications" className="hover:text-blue-600 transition">Publications</Link>
-              <Link to="/gallery" className="hover:text-blue-600 transition">Gallery</Link>
-              <Link to="/news" className="hover:text-blue-600 transition">News</Link>
               <Link to="/contact" className="hover:text-blue-600 transition">Contact</Link>
             </div>
           </div>
@@ -32,8 +25,6 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/research" element={<Research />} />
           <Route path="/publications" element={<Publications />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
 
@@ -49,14 +40,14 @@ export default function App() {
   );
 }
 
-/* =======================
-      HOME PAGE
+/* ======================
+   HOME PAGE
 ======================= */
 function Home() {
   return (
     <div className="max-w-7xl mx-auto px-8 py-24 grid lg:grid-cols-2 gap-20 items-center">
-
-      {/* Text */}
+      
+      {/* Text Section */}
       <div className="space-y-8">
         <h2 className="text-6xl font-extrabold leading-tight tracking-tight">
           Emerging Scientist in <span className="text-blue-600">Computational Materials</span>
@@ -64,7 +55,8 @@ function Home() {
 
         <p className="text-xl text-gray-700 leading-relaxed">
           I am a researcher and scientific software developer working on density functional theory,
-          AI-driven materials discovery, and high-performance simulations.
+          AI-driven materials discovery, and high-performance simulations. I focus on building
+          accurate computational models and accelerating materials prediction using machine learning.
         </p>
 
         <Link
@@ -75,21 +67,21 @@ function Home() {
         </Link>
       </div>
 
-      {/* Profile Photo */}
       <div className="flex justify-center">
-        <img
-          src={profilePic}
-          alt="Profile"
-          className="w-72 h-72 object-cover rounded-full shadow-xl border-4 border-white"
-        />
+         <img 
+            src={profilePic} 
+            alt="Profile"
+            className="w-72 h-72 object-cover rounded-full shadow-xl border-4 border-white"
+         />
       </div>
+
 
     </div>
   );
 }
 
-/* =======================
-      RESEARCH PAGE
+/* ======================
+   RESEARCH PAGE
 ======================= */
 function Research() {
   return (
@@ -98,23 +90,23 @@ function Research() {
 
       <div className="grid lg:grid-cols-2 gap-10">
         <ResearchCard
-          title="Agentic AI and Scientific Software Development"
-          desc="Developing tools connecting traditional scientific computations with modern AI workflows."
+          title="Agentic AI and Scientific software developer"
+          desc="Developing tools that connects traditional scientific computations with the cutting edge agentic AI workflows,
+          structural, and thermodynamic properties."
         />
-
         <ResearchCard
           title="Quantum Simulations"
-          desc="Large-scale DFT, benchmarking, and high-accuracy quantum simulations."
+          desc="Large-scale DFT, benchmarking methods, and high-accuracy quantum simulations
+          for materials and molecules."
         />
-
         <ResearchCard
           title="High-Performance Computing"
-          desc="Optimizing workflows, parallelizing computations, and building scalable pipelines."
+          desc="Optimizing workflows, parallelizing computations, and building scalable
+          pipelines for materials data."
         />
-
         <ResearchCard
-          title="AI4Science"
-          desc="Exploring the intersection of AI and computational material science."
+          title="AI4Science "
+          desc="Exploring the intersection of AI and computational material science"
         />
       </div>
     </div>
@@ -130,8 +122,8 @@ function ResearchCard({ title, desc }) {
   );
 }
 
-/* =======================
-      PUBLICATIONS
+/* ======================
+   PUBLICATIONS PAGE
 ======================= */
 function Publications() {
   return (
@@ -147,68 +139,14 @@ function Publications() {
   );
 }
 
-/* =======================
-      GALLERY PAGE
-======================= */
-function Gallery() {
-  const photos = [
-    { src: img1, title: "Conference – 2024" },
-    { src: img2, title: "Workshop – 2023" },
-    { src: img3, title: "Research Presentation – 2022" },
-  ];
-
-  return (
-    <div className="max-w-6xl mx-auto px-8 py-20">
-      <h2 className="text-4xl font-bold tracking-tight mb-12">Gallery</h2>
-
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {photos.map((p, i) => (
-          <div key={i} className="rounded-xl overflow-hidden shadow hover:shadow-xl transition">
-            <img src={p.src} alt={p.title} className="w-full h-64 object-cover" />
-            <div className="p-4 text-center text-gray-700 font-medium">{p.title}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* =======================
-      NEWS PAGE
-======================= */
-function News() {
-  const updates = [
-    { date: "Jan 2025", text: "Joined XYZ Lab as Research Fellow." },
-    { date: "Oct 2024", text: "Presented work at International Materials Conference." },
-    { date: "Apr 2024", text: "Published paper in Journal of Computational Chemistry." },
-  ];
-
-  return (
-    <div className="max-w-4xl mx-auto px-8 py-20">
-      <h2 className="text-4xl font-bold tracking-tight mb-12">Latest News & Updates</h2>
-
-      <div className="space-y-6">
-        {updates.map((u, i) => (
-          <div
-            key={i}
-            className="p-6 bg-white rounded-xl shadow border-l-4 border-blue-600"
-          >
-            <h4 className="text-xl font-semibold">{u.date}</h4>
-            <p className="text-gray-700 mt-2 text-lg">{u.text}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* =======================
-      CONTACT PAGE
+/* ======================
+   CONTACT PAGE
 ======================= */
 function Contact() {
   return (
     <div className="max-w-5xl mx-auto px-8 py-20 space-y-6">
       <h2 className="text-4xl font-bold tracking-tight">Contact</h2>
+
       <p className="text-lg text-gray-700">Email: your.email@example.com</p>
       <p className="text-lg text-gray-700">LinkedIn: /yourprofile</p>
       <p className="text-lg text-gray-700">GitHub: /yourprofile</p>
