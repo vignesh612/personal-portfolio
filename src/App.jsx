@@ -48,6 +48,9 @@ export default function App() {
           </div>
         </footer>
 
+	{/* Analytics here */}
+        <Analytics />  
+
       </div>
     </Router>
   );
