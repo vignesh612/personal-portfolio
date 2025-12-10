@@ -221,7 +221,7 @@ function Gallery() {
       event: "AI Internship at Xiamen University, China",
       photos: [
         { src: xi_1, caption: "Gulangyu Island Visit" },
-        { src: xi_2, caption: "Group Hile with Prof Pavlo" },
+        { src: xi_2, caption: "Group Hike with Prof Pavlo" },
         { src: xi_3, caption: "South Putao Temple" },
         { src: xi_4, caption: "The beautifull Xiamen University" },
       ],
