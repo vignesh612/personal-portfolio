@@ -243,9 +243,9 @@ function Gallery() {
 ======================= */
 function News() {
   const updates = [
-    { date: "Jan 2025", text: "Joined XYZ Lab as Research Fellow." },
-    { date: "Oct 2024", text: "Presented work at International Materials Conference." },
-    { date: "Apr 2024", text: "Published paper in Journal of Computational Chemistry." },
+    { date: "Sep 2018", text: "Joined Indian Institute of Science Education and Research, Tirupati as Research Fellow." },
+    { date: "March 2020", text: "Joined Indian Institute of Science Education and Research, Bhopal as Junior Research Fellow." },
+    { date: "Sept 2021", text: "Joined the Institute of Physics, Nicolaus Copernicus University in Torun as a Doctoral Candidate" },
   ];
 
   return (
@@ -271,10 +271,10 @@ function Contact() {
   return (
     <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-20 space-y-6">
       <h2 className="text-3xl md:text-4xl font-bold">Contact</h2>
-      <p className="text-md md:text-lg text-gray-700">Email: your.email@example.com</p>
-      <p className="text-md md:text-lg text-gray-700">LinkedIn: /yourprofile</p>
-      <p className="text-md md:text-lg text-gray-700">GitHub: /yourprofile</p>
-      <p className="text-md md:text-lg text-gray-700">Google Scholar: /yourprofile</p>
+      <p className="text-md md:text-lg text-gray-700">Email: kvb612@hotmail.com</p>
+      <p className="text-md md:text-lg text-gray-700">LinkedIn: www.linkedin.com/in/vigneshbalajik</p>
+      <p className="text-md md:text-lg text-gray-700">GitHub: https://github.com/vignesh612</p>
+      <p className="text-md md:text-lg text-gray-700">Google Scholar: https://scholar.google.com/citations?user=1uLV9jUAAAAJ&hl=en</p>
     </div>
   );
 }
