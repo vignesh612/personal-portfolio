@@ -275,11 +275,46 @@ function Contact() {
   return (
     <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-20 space-y-6">
       <h2 className="text-3xl md:text-4xl font-bold">Contact</h2>
-      <p className="text-md md:text-lg text-gray-700">Email: kvb612@hotmail.com</p>
-      <p className="text-md md:text-lg text-gray-700">LinkedIn: www.linkedin.com/in/vigneshbalajik</p>
-      <p className="text-md md:text-lg text-gray-700">GitHub: https://github.com/vignesh612</p>
-      <p className="text-md md:text-lg text-gray-700">Google Scholar: https://scholar.google.com/citations?user=1uLV9jUAAAAJ&hl=en</p>
+
+      {/* Email */}
+      <a
+        href="mailto:kvb612@hotmail.com"
+        className="text-md md:text-lg text-blue-600 hover:underline break-all"
+      >
+        Email: kvb612@hotmail.com
+      </a>
+
+      {/* LinkedIn */}
+      <a
+        href="https://www.linkedin.com/in/vigneshbalajik"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-md md:text-lg text-blue-600 hover:underline break-all"
+      >
+        LinkedIn: www.linkedin.com/in/vigneshbalajik
+      </a>
+
+      {/* GitHub */}
+      <a
+        href="https://github.com/vignesh612"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-md md:text-lg text-blue-600 hover:underline break-all"
+      >
+        GitHub: github.com/vignesh612
+      </a>
+
+      {/* Google Scholar */}
+      <a
+        href="https://scholar.google.com/citations?user=1uLV9jUAAAAJ&hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-md md:text-lg text-blue-600 hover:underline break-all"
+      >
+        Google Scholar: scholar.google.com/citations?user=1uLV9jUAAAAJ
+      </a>
     </div>
   );
 }
+
 
