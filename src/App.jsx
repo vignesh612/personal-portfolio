@@ -273,46 +273,51 @@ function News() {
 ======================= */
 function Contact() {
   return (
-    <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-20 space-y-6">
-      <h2 className="text-3xl md:text-4xl font-bold">Contact</h2>
+    <div className="max-w-5xl mx-auto px-8 py-20 space-y-6">
+      <h2 className="text-4xl font-bold tracking-tight">Contact</h2>
 
-      {/* Email */}
-      <a
-        href="mailto:kvb612@hotmail.com"
-        className="text-md md:text-lg text-blue-600 hover:underline break-all"
-      >
-        Email: kvb612@hotmail.com
-      </a>
+      <p className="text-lg text-gray-700">
+        <strong>Email:</strong>{" "}
+        <a href="mailto:kvb612@hotmail.com" className="text-blue-600 hover:underline">
+          kvb612@hotmail.com
+        </a>
+      </p>
 
-      {/* LinkedIn */}
-      <a
-        href="https://www.linkedin.com/in/vigneshbalajik"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-md md:text-lg text-blue-600 hover:underline break-all"
-      >
-        LinkedIn: www.linkedin.com/in/vigneshbalajik
-      </a>
+      <p className="text-lg text-gray-700">
+        <strong>LinkedIn:</strong>{" "}
+        <a
+          href="https://www.linkedin.com/in/vigneshbalajik"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          linkedin.com/in/vigneshbalajik
+        </a>
+      </p>
 
-      {/* GitHub */}
-      <a
-        href="https://github.com/vignesh612"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-md md:text-lg text-blue-600 hover:underline break-all"
-      >
-        GitHub: github.com/vignesh612
-      </a>
+      <p className="text-lg text-gray-700">
+        <strong>GitHub:</strong>{" "}
+        <a
+          href="https://github.com/vignesh612"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          github.com/vignesh612
+        </a>
+      </p>
 
-      {/* Google Scholar */}
-      <a
-        href="https://scholar.google.com/citations?user=1uLV9jUAAAAJ&hl=en"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-md md:text-lg text-blue-600 hover:underline break-all"
-      >
-        Google Scholar: scholar.google.com/citations?user=1uLV9jUAAAAJ
-      </a>
+      <p className="text-lg text-gray-700">
+        <strong>Google Scholar:</strong>{" "}
+        <a
+          href="https://scholar.google.com/citations?user=1uLV9jUAAAAJ"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          scholar.google.com/citations?user=1uLV9jUAAAAJ
+        </a>
+      </p>
     </div>
   );
 }
