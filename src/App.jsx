@@ -3,7 +3,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 
-
 // Example Gallery Imports (add your real images)
 import img1 from "./assets/gallery/img1.jpg";
 import img2 from "./assets/gallery/img2.jpg";
