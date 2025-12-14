@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import AIagent from "./components/AIagent";
+import Chat from "./components/Chat";
+
 // Gallery Images
 
 import img1 from "./assets/gallery/img1.jpg";
@@ -83,7 +85,7 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
-	  <Route path="/aiagent" element={<AIagent />} />
+	  <Route path="/aiagent" element={<Chat />} />
         </Routes>
 
         {/* FOOTER */}
