@@ -2,7 +2,7 @@ import profilePic from "./assets/ph3.png";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
-
+import AIagent from "./components/AIagent";
 // Gallery Images
 
 import img1 from "./assets/gallery/img1.jpg";
@@ -48,6 +48,7 @@ export default function App() {
               <NavLink to="/publications" label="Publications" />
               <NavLink to="/gallery" label="Gallery" />
               <NavLink to="/news" label="News" />
+	      <NavLink to="/aiagent" label="AI Agent" />
               <NavLink to="/contact" label="Contact" />
             </div>
 
@@ -68,6 +69,7 @@ export default function App() {
               <MobileLink to="/publications" label="Publications" close={() => setMenuOpen(false)} />
               <MobileLink to="/gallery" label="Gallery" close={() => setMenuOpen(false)} />
               <MobileLink to="/news" label="News" close={() => setMenuOpen(false)} />
+	      <MobileLink to="/aiagent" label="AI Agent" close={() => setMenuOpen(false)} />
               <MobileLink to="/contact" label="Contact" close={() => setMenuOpen(false)} />
             </div>
           )}
@@ -81,6 +83,7 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
+	  <Route path="/aiagent" element={<AIagent />} />
         </Routes>
 
         {/* FOOTER */}
