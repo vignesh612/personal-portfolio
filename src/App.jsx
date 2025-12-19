@@ -200,9 +200,11 @@ function Publications() {
       <h2 className="text-3xl md:text-4xl font-bold mb-10">Publications</h2>
 
       <ul className="space-y-6 text-md md:text-lg">
-        <li className="p-5 bg-white rounded-xl shadow">• Research Paper Title 1 — Journal (Year)</li>
-        <li className="p-5 bg-white rounded-xl shadow">• Research Paper Title 2 — Journal (Year)</li>
-        <li className="p-5 bg-white rounded-xl shadow">• Research Paper Title 3 — Journal (Year)</li>
+        <li className="p-5 bg-white rounded-xl shadow">• Plasmon Induced Charge Transfer Dynamics in Metallic Nanoparticle‐MoSe2 Nanoflake Heterostructures,  — Advanced Optical Materials (2025)</li>
+        <li className="p-5 bg-white rounded-xl shadow">• The best DFT functional is the ensemble of functionals — Advanced Science (2024)</li>
+        <li className="p-5 bg-white rounded-xl shadow">• A Critical Evaluation of the Hybrid KS DFT Functionals Based on the KS Exchange-Correlation Potentials — The Journal of Physical Chemistry Letters (2024)</li>
+	<li className="p-5 bg-white rounded-xl shadow">• Size and Composition Dependence of Plasmonic Excitations in Transition Metal Dichalcogenide Nanoflakes — The Journal of Physical Chemistry C (2023)</li>
+	<li className="p-5 bg-white rounded-xl shadow">• Physically meaningful solutions of optimized effective potential equations in a finite basis set within KS-DFT framework - Advances in Quantum Chemistry  (2023)</li>
       </ul>
     </div>
   );
