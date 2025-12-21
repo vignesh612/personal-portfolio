@@ -286,10 +286,10 @@ function Gallery() {
     {
       event: "17th International Congress of Quantum Chemistry 2023, Bratislava, Slovakia",
       photos: [
-        { src: br_1, caption: "Me and My poster" },
+        { src: br_1, caption: "Me, My poster and Rahul" },
         { src: br_2, caption: "Picturesque Journey" },
-        { src: br_2, caption: "Selfie with Szymon" },
-        { src: br_2, caption: "Beautiful Bratislava" },
+        { src: br_3, caption: "Selfie with Szymon" },
+        { src: br_4, caption: "Beautiful Bratislava" },
       ],
     },
   ];
