@@ -234,6 +234,46 @@ function Publications() {
             <span className="not-italic text-gray-500"> (2025)</span>
           </p>
         </li>
+        <li className="group p-6 bg-white rounded-xl shadow-sm border-l-4 border-blue-600 hover:shadow-md transition">
+          <p className="font-semibold text-lg text-gray-900">
+            The best DFT functional is the ensemble of functionals
+          </p>
+
+          <p className="mt-2 italic text-gray-600">
+            Advanced Science
+            <span className="not-italic text-gray-500"> (2024)</span>
+          </p>
+        </li>
+        <li className="group p-6 bg-white rounded-xl shadow-sm border-l-4 border-blue-600 hover:shadow-md transition">
+          <p className="font-semibold text-lg text-gray-900">
+            A Critical Evaluation of the Hybrid KS DFT Functionals Based on the KS Exchange-Correlation Potentials
+          </p>
+
+          <p className="mt-2 italic text-gray-600">
+            The Journal of Physical Chemistry Letters
+            <span className="not-italic text-gray-500"> (2024)</span>
+          </p>
+        </li>
+        <li className="group p-6 bg-white rounded-xl shadow-sm border-l-4 border-blue-600 hover:shadow-md transition">
+          <p className="font-semibold text-lg text-gray-900">
+            Size and Composition Dependence of Plasmonic Excitations in Transition Metal Dichalcogenide Nanoflakes
+          </p>
+
+          <p className="mt-2 italic text-gray-600">
+            The Journal of Physical Chemistry C
+            <span className="not-italic text-gray-500"> (2023)</span>
+          </p>
+        </li>
+        <li className="group p-6 bg-white rounded-xl shadow-sm border-l-4 border-blue-600 hover:shadow-md transition">
+          <p className="font-semibold text-lg text-gray-900">
+            Physically meaningful solutions of optimized effective potential equations in a finite basis set within KS-DFT framework
+          </p>
+
+          <p className="mt-2 italic text-gray-600">
+            Advances in Quantum Chemistry
+            <span className="not-italic text-gray-500"> (2023)</span>
+          </p>
+        </li>
       </ul>
     </div>
   );
