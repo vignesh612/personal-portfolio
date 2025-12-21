@@ -215,6 +215,35 @@ function ResearchCard({ title, desc }) {
 /* =======================
       PUBLICATIONS
 ======================= */
+
+function Publications() {
+  return (
+    <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-20">
+      <h2 className="text-3xl md:text-4xl font-bold mb-10">
+        Publications
+      </h2>
+
+      <ul className="space-y-6">
+        <li className="group p-6 bg-white rounded-xl shadow-sm border-l-4 border-blue-600 hover:shadow-md transition">
+          <p className="font-semibold text-lg text-gray-900">
+            Plasmon Induced Charge Transfer Dynamics in Metallic Nanoparticle–MoSe₂ Nanoflake Heterostructures
+          </p>
+
+          <p className="mt-2 italic text-gray-600">
+            Advanced Optical Materials
+            <span className="not-italic text-gray-500"> (2025)</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+
+
+
+
+/*
 function Publications() {
   return (
     <div className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-20">
@@ -230,7 +259,7 @@ function Publications() {
     </div>
   );
 }
-
+*/
 /* =======================
       GALLERY PAGE
 ======================= */
