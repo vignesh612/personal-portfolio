@@ -31,6 +31,21 @@ import paris_4 from "./assets/gallery/DFT_Paris/4.jpg";
 import paris_5 from "./assets/gallery/DFT_Paris/5.jpg";
 import paris_6 from "./assets/gallery/DFT_Paris/6.jpg";
 
+import upp_1 from "./assets/gallery/uppsala/1.jpg";
+import upp_2 from "./assets/gallery/uppsala/2.jpg";
+import upp_3 from "./assets/gallery/uppsala/3.jpg";
+import upp_4 from "./assets/gallery/uppsala/4.jpg";
+
+import br_1 from "./assets/gallery/Bratislava/1.jpg";
+import br_2 from "./assets/gallery/Bratislava/2.jpg";
+import br_3 from "./assets/gallery/Bratislava/3.jpg";
+import br_4 from "./assets/gallery/Bratislava/4.jpg";
+
+
+import qif_1 from "./assets/gallery/lodz/1.jpg";
+import qif_2 from "./assets/gallery/lodz/2.jpg";
+
+
 
 
 export default function App() {
@@ -251,20 +266,30 @@ function Gallery() {
       ],
     },
     {
-      event: "Conference 2024",
+      event: " Symposium on Machine Learning and Quantum Chemistry 2024, Uppsala, Sweden",
       photos: [
-        { src: img1, caption: "Talk Session – Day 1" },
-        { src: img2, caption: "Poster Presentation" },
-        { src: img3, caption: "Networking Event" },
-        { src: img4, caption: "Closing Ceremony" },
+        { src: upp_1, caption: "Me and My poster" },
+        { src: upp_2, caption: "Uppsala Cathedral, Snow and Me" },
+        { src: upp_3, caption: "Å in a Restaurant" },
+        { src: upp_4, caption: "The most beautiful Uppsala" },
       ],
     },
 
     {
-      event: "Workshop 2023",
+      event: "3rd Quantum International Frontiers, Łódź",
       photos: [
-        { src: img5, caption: "Invited Lecture" },
-        { src: img6, caption: "Hands-on Session" },
+        { src: qif_1, caption: "Me and My poster" },
+        { src: qif_2, caption: "Irek's Talk" },
+      ],
+    },
+
+    {
+      event: "17th International Congress of Quantum Chemistry 2023, Bratislava, Slovakia",
+      photos: [
+        { src: br_1, caption: "Me and My poster" },
+        { src: br_2, caption: "Picturesque Journey" },
+        { src: br_2, caption: "Selfie with Szymon" },
+        { src: br_2, caption: "Beautiful Bratislava" },
       ],
     },
   ];
