@@ -242,7 +242,7 @@ function Gallery() {
     {
       event: "DFT 2024 Paris",
       photos: [
-        { src: paris_1, caption: "My Poster" },
+        { src: paris_1, caption: "Group Photo" },
         { src: paris_2, caption: "Ready for the Event" },
         { src: paris_3, caption: "Szymon's Talk" },
         { src: paris_4, caption: "With Szymon and Eiffel" },
