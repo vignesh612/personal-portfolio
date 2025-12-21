@@ -233,6 +233,14 @@ function Publications() {
             Advanced Optical Materials
             <span className="not-italic text-gray-500"> (2025)</span>
           </p>
+	  <a
+            href="https://doi.org/10.1002/adom.202402679"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block text-sm text-blue-600 hover:underline"
+          >
+            View publication →
+	  </a>
         </li>
         <li className="group p-6 bg-white rounded-xl shadow-sm border-l-4 border-blue-600 hover:shadow-md transition">
           <p className="font-semibold text-lg text-gray-900">
