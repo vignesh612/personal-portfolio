@@ -24,7 +24,7 @@ import xi_2 from "./assets/gallery/xiamen/2.jpg";
 import xi_3 from "./assets/gallery/xiamen/3.jpg";
 import xi_4 from "./assets/gallery/xiamen/4.jpg";
 
-import paris_1 from "./assets/gallery/DFT_Paris/1.pdf";
+import paris_1 from "./assets/gallery/DFT_Paris/1.jpg";
 import paris_2 from "./assets/gallery/DFT_Paris/2.jpg";
 import paris_3 from "./assets/gallery/DFT_Paris/3.jpg";
 import paris_4 from "./assets/gallery/DFT_Paris/4.jpg";
