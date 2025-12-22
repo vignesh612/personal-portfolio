@@ -195,9 +195,9 @@ function Research() {
 
       <div className="grid md:grid-cols-2 gap-8">
         <ResearchCard title="Agentic AI & Scientific Software" desc="Developing tools linking traditional computations with modern AI workflows." />
-        <ResearchCard title="Quantum Simulations" desc="DFT, benchmarking, and high-accuracy quantum simulations." />
+        <ResearchCard title="Quantum Simulations" desc="DFT, TDDFT, and large-scale quantum simulations." />
         <ResearchCard title="High-Performance Computing" desc="Parallel workloads, optimized pipelines, and cluster-level computation." />
-        <ResearchCard title="AI for Materials Science" desc="Exploring new intersections between AI and computational materials." />
+        <ResearchCard title="Quantum Theory Development" desc="Developing new techniques to make quantum simulations more efficient and accurate." />
       </div>
     </div>
   );
