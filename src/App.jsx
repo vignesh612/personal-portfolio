@@ -155,8 +155,8 @@ function Home() {
       {/* TEXT SECTION */}
       <div className="space-y-8">
         <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">
-          Emerging Scientist in{" "}
-          <span className="text-blue-600">Computational Materials</span>
+          Welcome{" "}
+          <span className="text-blue-600">Wish you a Merry Crishtmas and Happy New Year 2026 </span>
         </h2>
 
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
