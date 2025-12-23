@@ -16,7 +16,7 @@ export default async function handler(
       },
       body: JSON.stringify({
         workflow: {
-          id: "wf_693ed4cd88408190bd5f9da78e896390071ce73177e12689",
+          id: "wf_694a9c79b2888190b2322a80de4da5b10561f82966dbcdfe",
         },
         user: req.headers["x-forwarded-for"] || "anonymous",
       }),
