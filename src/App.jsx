@@ -68,6 +68,7 @@ export default function App() {
             <div className="hidden md:flex gap-8 text-lg font-medium">
               <NavLink to="/" label="Home" />
               <NavLink to="/research" label="Research" />
+              <NavLink to="/teaching" label="Teaching" />
               <NavLink to="/publications" label="Publications" />
               <NavLink to="/gallery" label="Gallery" />
               <NavLink to="/news" label="News" />
@@ -89,6 +90,7 @@ export default function App() {
             <div className="md:hidden flex flex-col bg-white px-6 pb-4 text-lg gap-3 shadow">
               <MobileLink to="/" label="Home" close={() => setMenuOpen(false)} />
               <MobileLink to="/research" label="Research" close={() => setMenuOpen(false)} />
+              <MobileLink to="/teaching" label="Teaching" close={() => setMenuOpen(false)} />
               <MobileLink to="/publications" label="Publications" close={() => setMenuOpen(false)} />
               <MobileLink to="/gallery" label="Gallery" close={() => setMenuOpen(false)} />
               <MobileLink to="/news" label="News" close={() => setMenuOpen(false)} />
@@ -102,6 +104,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/research" element={<Research />} />
+          <Route path="/teaching" element={<Teaching />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/news" element={<News />} />
@@ -211,6 +214,21 @@ function ResearchCard({ title, desc }) {
     </div>
   );
 }
+
+
+function Teaching() {
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Welcome</h1>
+      <Link to="/blogs">
+        <button style={{ padding: "10px 20px", fontSize: "16px" }}>
+          Go to Blog Writing Page
+        </button>
+      </Link>
+    </div>
+  );
+}
+
 
 /* =======================
       PUBLICATIONS
