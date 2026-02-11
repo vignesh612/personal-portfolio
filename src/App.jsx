@@ -218,13 +218,83 @@ function ResearchCard({ title, desc }) {
 
 function Teaching() {
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Welcome</h1>
-      <Link to="/blogs">
-        <button style={{ padding: "10px 20px", fontSize: "16px" }}>
-          Go to Blog Writing Page
-        </button>
-      </Link>
+    <div style={styles.page}>
+      <h1 style={styles.title}>My Technical Blogs</h1>
+      <p style={styles.subtitle}>
+        Deep dives into modern infrastructure and AI systems
+      </p>
+
+      <div style={styles.cardContainer}>
+        <Link to="/kubernetes" style={styles.link}>
+          <div style={styles.card}>
+            <h2>🚀 Kubernetes</h2>
+            <p>
+              Learn container orchestration, scaling, pods, services,
+              deployments, and production architecture.
+            </p>
+          </div>
+        </Link>
+
+        <Link to="/llm-from-scratch" style={styles.link}>
+          <div style={styles.card}>
+            <h2>🧠 Building LLMs from Scratch</h2>
+            <p>
+              From tokenization to transformers — understand how large language
+              models actually work.
+            </p>
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Kubernetes Blog Page ---------- */
+
+function KubernetesBlog() {
+  return (
+    <div style={styles.blogPage}>
+      <h1>🚀 Kubernetes: A Practical Guide</h1>
+      <p>
+        Kubernetes is a container orchestration system designed to automate
+        deployment, scaling, and management of containerized applications.
+      </p>
+
+      <h2>Core Concepts</h2>
+      <ul>
+        <li>Pods</li>
+        <li>Deployments</li>
+        <li>Services</li>
+        <li>Ingress</li>
+        <li>ConfigMaps & Secrets</li>
+      </ul>
+
+      <Link to="/" style={styles.backButton}>← Back</Link>
+    </div>
+  );
+}
+
+/* ---------- LLM Blog Page ---------- */
+
+function LLMFromScratch() {
+  return (
+    <div style={styles.blogPage}>
+      <h1>🧠 Building LLMs from Scratch</h1>
+      <p>
+        Large Language Models are built using transformers, self-attention,
+        and massive datasets.
+      </p>
+
+      <h2>Steps to Build an LLM</h2>
+      <ol>
+        <li>Tokenization</li>
+        <li>Embedding layers</li>
+        <li>Self-attention mechanism</li>
+        <li>Transformer blocks</li>
+        <li>Pretraining & fine-tuning</li>
+      </ol>
+
+      <Link to="/" style={styles.backButton}>← Back</Link>
     </div>
   );
 }
