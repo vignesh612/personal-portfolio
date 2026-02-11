@@ -271,7 +271,7 @@ function KubernetesBlog() {
         <li>ConfigMaps & Secrets</li>
       </ul>
 
-      <Link to="/" style={styles.backButton}>← Back</Link>
+      <Link to="/teaching" style={styles.backButton}>← Back</Link>
     </div>
   );
 }
@@ -296,7 +296,7 @@ function LLMFromScratch() {
         <li>Pretraining & fine-tuning</li>
       </ol>
 
-      <Link to="/" style={styles.backButton}>← Back</Link>
+      <Link to="/teaching" style={styles.backButton}>← Back</Link>
     </div>
   );
 }
