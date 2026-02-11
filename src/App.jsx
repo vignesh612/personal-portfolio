@@ -607,4 +607,54 @@ function Contact() {
   );
 }
 
-
+const styles = {
+  page: {
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #0f172a, #1e293b)",
+    color: "white",
+    textAlign: "center",
+    padding: "60px 20px",
+    fontFamily: "system-ui",
+  },
+  title: {
+    fontSize: "3rem",
+    marginBottom: "10px",
+  },
+  subtitle: {
+    opacity: 0.8,
+    marginBottom: "40px",
+  },
+  cardContainer: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "30px",
+    flexWrap: "wrap",
+  },
+  card: {
+    background: "white",
+    color: "#111",
+    padding: "30px",
+    borderRadius: "16px",
+    width: "320px",
+    boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
+    transition: "transform 0.3s ease",
+  },
+  link: {
+    textDecoration: "none",
+  },
+  blogPage: {
+    minHeight: "100vh",
+    padding: "60px 20px",
+    fontFamily: "system-ui",
+    maxWidth: "800px",
+    margin: "auto",
+    lineHeight: "1.6",
+  },
+  backButton: {
+    display: "inline-block",
+    marginTop: "30px",
+    textDecoration: "none",
+    color: "#2563eb",
+    fontWeight: "bold",
+  },
+};
