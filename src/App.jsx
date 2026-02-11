@@ -69,6 +69,8 @@ export default function App() {
               <NavLink to="/" label="Home" />
               <NavLink to="/research" label="Research" />
               <NavLink to="/teaching" label="Teaching" />
+              <NavLink to="/kubernetes" label="KubernetesBlog" />
+              <NavLink to="/llm-from-scratch" label="LLMFromScratch" />
               <NavLink to="/publications" label="Publications" />
               <NavLink to="/gallery" label="Gallery" />
               <NavLink to="/news" label="News" />
@@ -91,6 +93,8 @@ export default function App() {
               <MobileLink to="/" label="Home" close={() => setMenuOpen(false)} />
               <MobileLink to="/research" label="Research" close={() => setMenuOpen(false)} />
               <MobileLink to="/teaching" label="Teaching" close={() => setMenuOpen(false)} />
+              <MobileLink to="/kubernetes" label="KubernetesBlog" close={() => setMenuOpen(false)} />
+              <MobileLink to="/llm-from-scratch" label="LLMFromScratch" close={() => setMenuOpen(false)} />
               <MobileLink to="/publications" label="Publications" close={() => setMenuOpen(false)} />
               <MobileLink to="/gallery" label="Gallery" close={() => setMenuOpen(false)} />
               <MobileLink to="/news" label="News" close={() => setMenuOpen(false)} />
