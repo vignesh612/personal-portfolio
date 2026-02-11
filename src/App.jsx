@@ -105,6 +105,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/research" element={<Research />} />
           <Route path="/teaching" element={<Teaching />} />
+	  <Route path="/kubernetes" element={<KubernetesBlog />} />
+          <Route path="/llm-from-scratch" element={<LLMFromScratch />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/news" element={<News />} />
