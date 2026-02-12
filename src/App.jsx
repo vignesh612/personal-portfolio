@@ -351,37 +351,40 @@ function LLMFromScratch() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  return (
-    <div style={kuber_styles.blogPage}>
-      <h1>🧠 Large Language Models</h1>
+return (
+  <div style={kuber_styles.blogPage}>
+    <h1>🧠 Large Language Models</h1>
+    <p>
+      Learn how transformers work, understand self-attention, tokens,
+      training mechanisms, and how modern AI systems generate language.
+    </p>
 
-      <div style={kuber_styles.faqContainer}>
-        {faqs.map((item, index) => (
-          <div key={index} style={kuber_styles.faqItem}>
-            <button
-              style={kuber_styles.faqButton}
-              onClick={() => toggleFAQ(index)}
-            >
-              {item.question}
-            </button>
+    <div style={kuber_styles.faqContainer}>
+      {faqs.map((faq, index) => (
+        <div key={index} style={kuber_styles.faqItem}>
+          <button
+            onClick={() => toggleFAQ(index)}
+            style={kuber_styles.faqButton}
+          >
+            {faq.question} {openIndex === index ? "▲" : "▼"}
+          </button>
 
-            {openIndex === index && (
-              <div style={kuber_styles.faqAnswer}>
-                {item.answer}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <Link to="/teaching" style={kuber_styles.backButton}>
-        ← Back
-      </Link>
+          {openIndex === index && (
+            <div style={kuber_styles.faqAnswer}>
+              {faq.answer}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
-  );
+
+    <Link to="/teaching" style={kuber_styles.backButton}>
+      ← Back to Teaching Page
+    </Link>
+  </div>
+);
+
 }
-
-
 
 /* =======================
       PUBLICATIONS
