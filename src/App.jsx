@@ -324,56 +324,63 @@ function KubernetesBlog() {
 function LLMFromScratch() {
   const [openIndex, setOpenIndex] = useState(null);
 
-  const questions = [
+  const faqs = [
     {
-      question: "What is an LLM?",
+      question: "What is a Large Language Model (LLM)?",
       answer:
-        "A Large Language Model (LLM) is a deep learning model trained on massive text datasets to understand and generate human-like language."
+        "A Large Language Model is a neural network trained on massive text datasets to understand and generate human-like language."
     },
     {
       question: "How does self-attention work?",
       answer:
-        "Self-attention allows the model to weigh the importance of different words in a sentence using dot products between query and key vectors."
+        "Self-attention allows the model to determine which words in a sentence are important by computing dot products between query and key vectors."
     },
     {
       question: "What are tokens?",
       answer:
-        "Tokens are smaller pieces of text (words or subwords) that the model processes numerically."
+        "Tokens are numerical representations of words or subwords that the model processes."
     },
     {
       question: "What is fine-tuning?",
       answer:
-        "Fine-tuning means training a pretrained LLM further on a smaller, domain-specific dataset."
+        "Fine-tuning is the process of training a pretrained LLM further on domain-specific data to improve performance on specialized tasks."
     }
   ];
 
-  const toggle = (index) => {
+  const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div style={llm_styles.container}>
-      <h1 style={llm_styles.heading}>🧠 Large Language Models</h1>
+    <div style={kuber_styles.blogPage}>
+      <h1>🧠 Large Language Models</h1>
 
-      {questions.map((item, index) => (
-        <div key={index} style={llm_styles.card}>
-          <button
-            style={styles.button}
-            onClick={() => toggle(index)}
-          >
-            {item.question}
-          </button>
+      <div style={kuber_styles.faqContainer}>
+        {faqs.map((item, index) => (
+          <div key={index} style={kuber_styles.faqItem}>
+            <button
+              style={kuber_styles.faqButton}
+              onClick={() => toggleFAQ(index)}
+            >
+              {item.question}
+            </button>
 
-          {openIndex === index && (
-            <div style={llm_styles.answer}>
-              {item.answer}
-            </div>
-          )}
-        </div>
-      ))}
+            {openIndex === index && (
+              <div style={kuber_styles.faqAnswer}>
+                {item.answer}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <Link to="/teaching" style={kuber_styles.backButton}>
+        ← Back
+      </Link>
     </div>
   );
 }
+
 
 
 /* =======================
