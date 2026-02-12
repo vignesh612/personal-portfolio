@@ -322,24 +322,55 @@ function KubernetesBlog() {
 /* ---------- LLM Blog Page ---------- */
 
 function LLMFromScratch() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const questions = [
+    {
+      question: "What is an LLM?",
+      answer:
+        "A Large Language Model (LLM) is a deep learning model trained on massive text datasets to understand and generate human-like language."
+    },
+    {
+      question: "How does self-attention work?",
+      answer:
+        "Self-attention allows the model to weigh the importance of different words in a sentence using dot products between query and key vectors."
+    },
+    {
+      question: "What are tokens?",
+      answer:
+        "Tokens are smaller pieces of text (words or subwords) that the model processes numerically."
+    },
+    {
+      question: "What is fine-tuning?",
+      answer:
+        "Fine-tuning means training a pretrained LLM further on a smaller, domain-specific dataset."
+    }
+  ];
+
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <div style={styles.blogPage}>
-      <h1>🧠 Building LLMs from Scratch</h1>
-      <p>
-        Large Language Models are built using transformers, self-attention,
-        and massive datasets.
-      </p>
+    <div style={llm_styles.container}>
+      <h1 style={llm_styles.heading}>🧠 Large Language Models</h1>
 
-      <h2>Steps to Build an LLM</h2>
-      <ol>
-        <li>Tokenization</li>
-        <li>Embedding layers</li>
-        <li>Self-attention mechanism</li>
-        <li>Transformer blocks</li>
-        <li>Pretraining & fine-tuning</li>
-      </ol>
+      {questions.map((item, index) => (
+        <div key={index} style={llm_styles.card}>
+          <button
+            style={styles.button}
+            onClick={() => toggle(index)}
+          >
+            {item.question}
+          </button>
 
-      <Link to="/teaching" style={styles.backButton}>← Back</Link>
+          {openIndex === index && (
+            <div style={llm_styles.answer}>
+              {item.answer}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
@@ -746,3 +777,39 @@ const kuber_styles = {
     fontWeight: "bold",
   },
 };
+
+const llm_styles = {
+  container: {
+    maxWidth: "800px",
+    margin: "50px auto",
+    padding: "20px",
+  },
+  heading: {
+    textAlign: "center",
+    marginBottom: "40px",
+  },
+  card: {
+    marginBottom: "20px",
+  },
+  button: {
+    width: "100%",
+    padding: "20px",
+    fontSize: "1.2rem",
+    borderRadius: "12px",
+    border: "none",
+    cursor: "pointer",
+    backgroundColor: "#2563eb",
+    color: "white",
+    textAlign: "left",
+    fontWeight: "bold",
+  },
+  answer: {
+    padding: "20px",
+    backgroundColor: "#f3f4f6",
+    borderRadius: "0 0 12px 12px",
+    fontSize: "1.05rem",
+    lineHeight: "1.6",
+  },
+};
+
+
