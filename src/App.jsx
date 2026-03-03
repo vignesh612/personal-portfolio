@@ -262,34 +262,40 @@ function KubernetesBlog() {
     },
     {
       question: "What is Kubernetes cluste?",
-      content: (
+      answer: (
         <div>
-          <p>
-            A Kubernetes cluster is a group of machines (nodes) that work
-            together to run containerized applications.
-          </p>
-
-          <h4>🔹 Main Components:</h4>
-
-          <div style={{ marginLeft: "15px" }}>
-            <h5>🧠 Control Plane (Brain)</h5>
-            <ul>
-              <li>Manages the cluster</li>
-              <li>Schedules workloads</li>
-              <li>Maintains the desired state</li>
+          <p>A Kubernetes cluster is a set of machines (nodes) that work together to run containerized applications. Think of it as a 'supercomputer' made up of multiple computers that act as one unified system.</p>
+          
+          <p><strong>A Kubernetes cluster consists of two main components:</strong></p>
+          
+          <div style={{ marginLeft: '15px', marginBottom: '15px' }}>
+            <p><strong>1. The Control Plane (The Brain) 🧠</strong> - Manages and orchestrates the cluster:</p>
+            <ul style={{ marginTop: '5px', marginBottom: '10px' }}>
+              <li><strong>API Server:</strong> The front door - all communications go through here</li>
+              <li><strong>Scheduler:</strong> Decides which node runs which application</li>
+              <li><strong>Controller Manager:</strong> Ensures the desired state is maintained</li>
+              <li><strong>etcd:</strong> The cluster's memory - stores all configuration data</li>
             </ul>
-
-            <h5>💪 Worker Nodes (Muscle)</h5>
-            <ul>
-              <li>Run application containers</li>
-              <li>Execute assigned workloads</li>
-              <li>Communicate with the control plane</li>
+            
+            <p><strong>2. The Worker Nodes (The Muscles) 💪</strong> - Actually run your applications:</p>
+            <ul style={{ marginTop: '5px', marginBottom: '10px' }}>
+              <li><strong>Kubelet:</strong> The node's agent that communicates with the control plane</li>
+              <li><strong>Container Runtime:</strong> Runs the containers (like Docker)</li>
+              <li><strong>Kube-proxy:</strong> Handles networking and load balancing</li>
+              <li><strong>Pods:</strong> The actual containers running your applications</li>
             </ul>
           </div>
+
+          <p><strong>Key Benefits of a Cluster:</strong></p>
+          <ul style={{ marginTop: '5px' }}>
+            <li><strong>High Availability:</strong> If one node fails, apps run on other nodes</li>
+            <li><strong>Load Balancing:</strong> Distributes traffic automatically across nodes</li>
+            <li><strong>Scalability:</strong> Easily add or remove nodes based on demand</li>
+            <li><strong>Self-Healing:</strong> Automatically restarts failed containers</li>
+          </ul>
         </div>
       ),
     },
-
     {
       question: "What are Pods?",
       answer:
