@@ -104,3 +104,47 @@ export default function KubernetesBlog() {
 }
 
 
+const kuber_styles = {
+  blogPage: {
+    minHeight: "100vh",
+    padding: "40px",
+    maxWidth: "800px",
+    margin: "auto",
+    fontFamily: "system-ui",
+    lineHeight: 1.6,
+  },
+  faqContainer: {
+    marginTop: "30px",
+  },
+  faqItem: {
+    marginBottom: "15px",
+  },
+  faqButton: {
+    width: "100%",
+    padding: "15px",
+    fontSize: "16px",
+    textAlign: "left",
+    border: "1px solid #ccc",
+    borderRadius: "8px",
+    backgroundColor: "#f1f5f9",
+    cursor: "pointer",
+    outline: "none",
+    transition: "background-color 0.3s ease",
+  },
+  faqAnswer: {
+    padding: "15px",
+    borderLeft: "3px solid #2563eb",
+    marginTop: "5px",
+    backgroundColor: "#e2e8f0",
+    borderRadius: "0 8px 8px 0",
+  },
+  backButton: {
+    display: "inline-block",
+    marginTop: "30px",
+    textDecoration: "none",
+    color: "#2563eb",
+    fontWeight: "bold",
+  },
+};
+
+
