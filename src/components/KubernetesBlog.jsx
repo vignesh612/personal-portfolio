@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function KubernetesBlog() {
+export default function KubernetesBlog() {
   const faqs = [
     {
       question: "What is Kubernetes?",
@@ -102,7 +102,5 @@ function KubernetesBlog() {
     </div>
   );
 }
-
-export default KubernetesBlog;
 
 
