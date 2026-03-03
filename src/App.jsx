@@ -262,8 +262,21 @@ function KubernetesBlog() {
     },
     {
       question: "What is Kubernetes cluste?",
-      answer:
-        "A Kubernetes cluster is a set of machines (nodes) that work together to run containerized applications. Think of it as a 'supercomputer' made up of multiple computers that act as one unified system. A Kubernetes cluste is mainly classified into two components. 1) The Control Plane which act as the brain of kubernetes cluster, 2) The Worker Node which acts as the muscle of the kubernetes cluster",
+      answer:`
+        A Kubernetes cluster is a group of machines (called nodes) that work together to run containerized applications.
+
+It consists of two main components:
+
+1) Control Plane (Brain of the cluster)
+   - Manages the cluster
+   - Schedules workloads
+   - Maintains desired state
+
+2) Worker Nodes (Muscle of the cluster)
+   - Run the application containers
+   - Execute workloads assigned by the control plane
+   - Communicate with the control plane
+      `,
     },
 
     {
