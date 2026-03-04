@@ -9,7 +9,7 @@ export default function KubernetesBlog() {
 	    <div style={{marginBottom: '15px' }}  > Our motivation here is to provide conceptual and technical understanding of Kubernetes. For detailed and more technical informatiom, I recommend the official Kubernetes documentation which is very elaborate and comprehensive. <a href="https://kubernetes.io/docs/home/"style={kuber_styles.highlightLink}target="_blank"rel="noopener noreferrer">Official Documentation</a> 
 	    </div>
             <p><strong>A Spinoff from Google's Borg</strong></p>
-	    <div> style={{marginBottom: '15px' }}>
+	    <div style={{marginBottom: '15px' }}>
              Google, engineers had already built an internal system called Borg to run massive workloads across their data centers. It worked insanely well, so a few brilliant folks like Joe Beda, Brendan Burns, and Craig McLuckie thought, “Why not build a more general, open version of this for everyone?” That project became Kubernetes, which Google open-sourced in 2014 so the whole world could use it. Then in 2015, Google basically said, “We don’t want this to look like a corporate pet project,” and donated it to the newly formed Cloud Native Computing Foundation under the umbrella of the Linux Foundation. That move made Kubernetes feel neutral and community-owned instead of “Google’s tool,” and boom — companies everywhere jumped in. And now it’s kind of the default way the cloud runs containers, which is wild when you think it started as an internal Google idea.
 	    </div>
 
