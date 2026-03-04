@@ -70,7 +70,16 @@ export default function KubernetesBlog() {
 	  <div>
              <p><strong> kubectl version </strong></p>
 	     <div style={{ marginLeft: '15px', marginBottom: '15px' }}>
-	     <p> This is basically to ping and check if we have kubernetes properly installed </p>
+	     <p> This is basically to ping and check if we have kubernetes properly installed. </p>
+	     </div>
+             <p><strong> kubectl cluster-info </strong></p>
+	     <div style={{ marginLeft: '15px', marginBottom: '15px' }}>
+	     <p> With this we check, if our kubernetes cluster is up and running. </p>
+	     </div>
+             <p><strong> kubectl get nodes </strong></p>
+	     <div style={{ marginLeft: '15px', marginBottom: '15px' }}>
+	     <p> This will list all the worker machines(nodes) in your Kubernetes cluster and displays their current status and basic information.  
+	     </p>
 	     </div>
           </div>
      },
