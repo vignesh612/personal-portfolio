@@ -8,10 +8,30 @@ export default function KubernetesBlog() {
 	    <div>
 	    <div style={{marginBottom: '15px' }}  > Our motivation here is to provide conceptual and technical understanding of Kubernetes. For detailed and more technical informatiom, I recommend the official Kubernetes documentation which is very elaborate and comprehensive. <a href="https://kubernetes.io/docs/home/"style={kuber_styles.highlightLink}target="_blank"rel="noopener noreferrer">Official Documentation</a> 
 	    </div>
+            <p><strong>A Spinoff from Google's Borg</strong></p>
+	    <div> style={{marginBottom: '15px' }}>
+             Google, engineers had already built an internal system called Borg to run massive workloads across their data centers. It worked insanely well, so a few brilliant folks like Joe Beda, Brendan Burns, and Craig McLuckie thought, “Why not build a more general, open version of this for everyone?” That project became Kubernetes, which Google open-sourced in 2014 so the whole world could use it. Then in 2015, Google basically said, “We don’t want this to look like a corporate pet project,” and donated it to the newly formed Cloud Native Computing Foundation under the umbrella of the Linux Foundation. That move made Kubernetes feel neutral and community-owned instead of “Google’s tool,” and boom — companies everywhere jumped in. And now it’s kind of the default way the cloud runs containers, which is wild when you think it started as an internal Google idea.
+	    </div>
+
 	    <p><strong>Run Containerized Applications</strong></p>
 	    <div style={{marginBottom: '15px' }}>
 	    Kubernetes is a opensource platform to manage containerized applications. Running applications as containers, makes our application host independent. That means you dont have to worry like "It works for me, Will it work for others". A container packages the application with all its dependencies (libraries, configuration files, binaries). This ensures it runs identically on a developer's laptop, a test server, or a cloud production environment.
 	    </div>
+            <p><strong>What Kubernetes can do</strong></p>
+	    <div>
+	     <ul style={{ marginTop: '5px', marginBottom: '10px' }}>
+	     <li><strong>Runs your containers automatically:</strong> You give it your Docker containers and it decides where they should live in your cluster. No babysitting required.</li>
+            <li><strong>Self-healing magic:</strong> If a container crashes? It restarts it. A node dies? It reschedules elsewhere. It’s basically the overprotective parent of your apps.</li>
+            <li><strong>Auto-scaling:</strong> Traffic spikes? It spins up more instances. Traffic drops? It scales down so you’re not wasting money.</li>
+            <li><strong>Load balancing:</strong> It spreads traffic evenly across your app instances so one poor container isn’t sweating alone.</li>
+            <li><strong>Rolling updates (no drama deploys):</strong> You can update your app gradually without downtime. If something breaks, you can roll back like it never happened.</li>
+            <li><strong>Service discovery:</strong> Containers can find and talk to each other without you hardcoding IP addresses everywhere.</li>
+            <li><strong>Secret & config management:</strong> Passwords, API keys, config files — it stores and injects them safely.</li>
+            <li><strong>Batch jobs & cron jobs:</strong> It’s not just web apps; it can run scheduled tasks and one-off heavy jobs too.</li>
+            <li><strong>Multi-cloud friendly:</strong> Since it’s under the Cloud Native Computing Foundation, it runs on pretty much any cloud or on-prem setup without locking you in.</li>
+            </ul>
+	    </div>
+
 	    </div>
     },
     {
