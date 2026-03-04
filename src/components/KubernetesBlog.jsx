@@ -64,6 +64,17 @@ export default function KubernetesBlog() {
       answer:
         "Services provide stable network endpoints to access a group of Pods and enable communication between different components.",
     },
+    {	  
+     question: "Some well known Kubernetes commands",
+     answer:
+	  <div>
+             <p><strong> kubectl version </strong></p>
+	     <div style={{ marginLeft: '15px', marginBottom: '15px' }}>
+	     <p> This is basically to ping and check if we have kubernetes properly installed </p>
+	     </div>
+          </div>
+     },
+
   ];
 
   // Track which FAQ is open
