@@ -3,6 +3,17 @@ import { Link } from 'react-router-dom';
 
 export default function KubernetesBlog() {
   const faqs = [
+    { question:"Why Kubernetes",
+      answer:
+	    <div>
+	    <div style={{marginBottom: '15px' }}  > Our motivation here is to provide conceptual and technical understanding to new learners of Kubernetes. The content here is the essential minimum to understand Kubernetes. For detailed and more technical informatiom, I recommend the official Kubernetes documentation which is very elaborate and comprehensive. <a href="https://kubernetes.io/docs/home/">Official Documentation</a> 
+	    </div>
+	    <p><strong> Containerized Applications</strong></p>
+	    <div style={{marginBottom: '15px' }}>
+	    Kubernetes is a opensource platform to manage containerized applications. Running applications as containers, makes our application host independent. That means you dont have to worry like "It works for me, Will it work for others". A container packages the application with all its dependencies (libraries, configuration files, binaries). This ensures it runs identically on a developer's laptop, a test server, or a cloud production environment.
+	    </div>
+	    </div>
+    },
     {
       question: "What is Kubernetes?",
       answer:
