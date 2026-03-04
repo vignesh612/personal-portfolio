@@ -6,9 +6,9 @@ export default function KubernetesBlog() {
     { question:"Why Kubernetes",
       answer:
 	    <div>
-	    <div style={{marginBottom: '15px' }}  > Our motivation here is to provide conceptual and technical understanding to new learners of Kubernetes. The content here is the essential minimum to understand Kubernetes. For detailed and more technical informatiom, I recommend the official Kubernetes documentation which is very elaborate and comprehensive. <a href="https://kubernetes.io/docs/home/">Official Documentation</a> 
+	    <div style={{marginBottom: '15px' }}  > Our motivation here is to provide conceptual and technical understanding of Kubernetes. For detailed and more technical informatiom, I recommend the official Kubernetes documentation which is very elaborate and comprehensive. <a href="https://kubernetes.io/docs/home/"style={kuber_styles.highlightLink}target="_blank"rel="noopener noreferrer">Official Documentation</a> 
 	    </div>
-	    <p><strong> Containerized Applications</strong></p>
+	    <p><strong>Run Containerized Applications</strong></p>
 	    <div style={{marginBottom: '15px' }}>
 	    Kubernetes is a opensource platform to manage containerized applications. Running applications as containers, makes our application host independent. That means you dont have to worry like "It works for me, Will it work for others". A container packages the application with all its dependencies (libraries, configuration files, binaries). This ensures it runs identically on a developer's laptop, a test server, or a cloud production environment.
 	    </div>
@@ -223,6 +223,18 @@ const kuber_styles = {
     marginTop: "5px",
     backgroundColor: "#e2e8f0",
     borderRadius: "0 8px 8px 0",
+  },
+  highlightLink: {
+    textDecoration: "none",
+    color: "#2563eb",
+    fontWeight: "bold",
+    backgroundColor: "#e2e8f0", // Light gray from your FAQ answer background
+    padding: "8px 16px",
+    borderRadius: "8px",
+    border: "2px solid #2563eb",
+    display: "inline-block",
+    transition: "all 0.3s ease",
+    // For hover effect, you'll need state or CSS modules
   },
   backButton: {
     display: "inline-block",
