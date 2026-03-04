@@ -35,12 +35,7 @@ export default function KubernetesBlog() {
 	    </div>
     },
     {
-      question: "What is Kubernetes?",
-      answer:
-        "Kubernetes is a container orchestration system that automates deployment, scaling, and management of containerized applications.",
-    },
-    {
-      question: "What is Kubernetes cluste?",
+      question: "What is Kubernetes cluster?",
       answer: (
         <div>
           <p>A Kubernetes cluster is a set of machines (nodes) that work together to run containerized applications. Think of it as a 'supercomputer' made up of multiple computers that act as one unified system.</p>
