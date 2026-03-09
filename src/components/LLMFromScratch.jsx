@@ -1055,11 +1055,6 @@ export default function LLMFromScratch() {
   )
     },
     {
-      question: "How does self-attention work?",
-      answer:
-        "Self-attention allows the model to determine which words in a sentence are important by computing dot products between query and key vectors."
-    },
-    {
       question: "What is fine-tuning?",
       answer:
         "Fine-tuning is the process of training a pretrained LLM further on domain-specific data to improve performance on specialized tasks."
