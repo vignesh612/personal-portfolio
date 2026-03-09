@@ -324,7 +324,7 @@ const styles = {
 
 
 
-const kuber_styles = {
+const llm_styles = {
   blogPage: {
     minHeight: "100vh",
     padding: "40px",
