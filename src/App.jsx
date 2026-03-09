@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import AIagent from "./components/AIagent";
 import Chat from "./components/Chat";
 import KubernetesBlog from './components/KubernetesBlog'; 
+import LLMFromScratch from './components/LLMFromScratch'; 
 // Gallery Images
 
 import img1 from "./assets/gallery/img1.jpg";
@@ -252,67 +253,6 @@ function Teaching() {
 }
 
 
-/* ---------- LLM Blog Page ---------- */
-
-function LLMFromScratch() {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const faqs = [
-    {
-      question: "What is a Large Language Model (LLM)?",
-      answer:
-        "A Large Language Model is a neural network trained on massive text datasets to understand and generate human-like language."
-    },
-    {
-      question: "How does self-attention work?",
-      answer:
-        "Self-attention allows the model to determine which words in a sentence are important by computing dot products between query and key vectors."
-    },
-    {
-      question: "What are tokens?",
-      answer:
-        "Tokens are numerical representations of words or subwords that the model processes."
-    },
-    {
-      question: "What is fine-tuning?",
-      answer:
-        "Fine-tuning is the process of training a pretrained LLM further on domain-specific data to improve performance on specialized tasks."
-    }
-  ];
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  return (
-    <div style={kuber_styles.blogPage}>
-      <h1>🧠 Large Language Models</h1>
-
-      <div style={kuber_styles.faqContainer}>
-        {faqs.map((item, index) => (
-          <div key={index} style={kuber_styles.faqItem}>
-            <button
-              style={kuber_styles.faqButton}
-              onClick={() => toggleFAQ(index)}
-            >
-              {item.question}
-            </button>
-
-            {openIndex === index && (
-              <div style={kuber_styles.faqAnswer}>
-                {item.answer}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <Link to="/teaching" style={kuber_styles.backButton}>
-        ← Back
-      </Link>
-    </div>
-  );
-}
 
 
 
