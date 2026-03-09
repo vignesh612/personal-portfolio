@@ -2113,9 +2113,9 @@ export default function LLMFromScratch() {
 
   return (
     <div style={llm_styles.blogPage}>
-      <h1>🚀 Kubernetes Blog</h1>
+      <h1>🚀 LLM Blog</h1>
       <p>
-        Learn container orchestration, scaling, pods, services, deployments, and production architecture.
+        Learn the nuts and bolts of building a Large Language Model.
       </p>
 
       <div style={llm_styles.faqContainer}>
