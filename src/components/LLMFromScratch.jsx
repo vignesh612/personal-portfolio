@@ -233,6 +233,657 @@ export default function LLMFromScratch() {
   )
     },
     {
+  question: "What are token IDs in Large Language Models?",
+  answer: (
+    <div>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#e6f3ff', 
+          padding: '15px', 
+          borderRadius: '8px',
+          borderLeft: '4px solid #2563eb',
+          marginBottom: '20px'
+        }}>
+          <strong>🎯 Quick Analogy:</strong> Think of token IDs like student ID numbers in a university. Instead of calling out "Jane Smith, the Computer Science major from New York who likes pizza," every time, the university just uses "ID: 2024001". It's faster, cleaner, and references all her information stored in the database. Similarly, LLMs use token IDs as efficient references to tokens and all their learned information.
+        </div>
+      </div>
+
+      <p><strong>The Concept: From Words to Numbers</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <strong>Token IDs</strong> are simply integers that represent specific tokens in the model's vocabulary. Since computers (and neural networks) work best with numbers, we need to convert every token into a unique numerical ID before feeding it into the model. It's like creating a massive phonebook where every word or subword has its own number.
+      </div>
+
+      <p><strong>Visualizing the Token-to-ID Mapping</strong></p>
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{
+          backgroundColor: '#1f2937',
+          color: '#e5e7eb',
+          padding: '20px',
+          borderRadius: '8px',
+          fontFamily: 'monospace',
+          fontSize: '1em',
+          marginBottom: '15px'
+        }}>
+          <div style={{ color: '#9ca3af', marginBottom: '10px' }}>📥 Input Text:</div>
+          <div>"The cat sat on the mat"</div>
+          
+          <div style={{ color: '#9ca3af', marginTop: '20px', marginBottom: '10px' }}>📄 Step 1: Tokenization:</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '15px' }}>
+            <span style={tokenPill}>["The"</span>
+            <span style={tokenPill}>"cat"</span>
+            <span style={tokenPill}>"sat"</span>
+            <span style={tokenPill}>"on"</span>
+            <span style={tokenPill}>"the"</span>
+            <span style={tokenPill}>"mat"]</span>
+          </div>
+          
+          <div style={{ color: '#9ca3af', marginTop: '20px', marginBottom: '10px' }}>🔢 Step 2: Map to Token IDs (simplified vocabulary):</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            <span style={{...tokenPill, backgroundColor: '#2563eb'}}>[464</span>
+            <span style={{...tokenPill, backgroundColor: '#2563eb'}}>3782</span>
+            <span style={{...tokenPill, backgroundColor: '#2563eb'}}>891</span>
+            <span style={{...tokenPill, backgroundColor: '#2563eb'}}>47</span>
+            <span style={{...tokenPill, backgroundColor: '#2563eb'}}>464</span>
+            <span style={{...tokenPill, backgroundColor: '#2563eb'}}>10234]</span>
+          </div>
+        </div>
+        
+        <p style={{ fontSize: '0.9em', color: '#6b7280' }}>
+          ⚡ Notice how "the" appears twice and gets the same ID (464) both times — that's the whole point!
+        </p>
+      </div>
+
+      <p><strong>What's in a Token ID? The Vocabulary</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '15px',
+          marginTop: '15px'
+        }}>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>📖 Vocabulary Size</div>
+            <div style={{ color: '#4b5563' }}>
+              <strong>GPT-3/4:</strong> ~50,000 tokens<br/>
+              <strong>LLaMA:</strong> ~32,000 tokens<br/>
+              <strong>BERT:</strong> ~30,000 tokens
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🗺️ Sample Vocabulary</div>
+            <div style={{ color: '#4b5563' }}>
+              <code>ID 462: "and"</code><br/>
+              <code>ID 463: "the"</code><br/>
+              <code>ID 464: "The"</code><br/>
+              <code>ID 465: "this"</code>
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🔢 Special Tokens</div>
+            <div style={{ color: '#4b5563' }}>
+              <code>[PAD]: 0</code> — Padding<br/>
+              <code>[UNK]: 1</code> — Unknown<br/>
+              <code>[CLS]: 101</code> — Classification<br/>
+              <code>[SEP]: 102</code> — Separator
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Why Token IDs Matter</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>⚡ Efficiency:</strong> Processing numbers (IDs) is vastly faster than processing strings. Your GPU loves integers!</li>
+          <li><strong>🎯 Lookup Tables:</strong> IDs serve as keys to look up embeddings (which we'll cover next).</li>
+          <li><strong>🌐 Language Agnostic:</strong> Whether it's English, Chinese, or code, everything becomes numbers.</li>
+          <li><strong>📊 Attention Mechanism:</strong> The model uses these IDs to compute relationships between tokens.</li>
+        </ul>
+      </div>
+
+      <p><strong>Real Example from GPT-2's Vocabulary</strong></p>
+      <div style={{ marginBottom: '20px', overflowX: 'auto' }}>
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          backgroundColor: '#ffffff',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <thead>
+            <tr style={{ backgroundColor: '#2563eb', color: '#ffffff' }}>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Token ID</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Token</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px' }}>0</td>
+              <td style={{ padding: '12px' }}>&lt;|endoftext|&gt;</td>
+              <td style={{ padding: '12px' }}>Special end marker</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px' }}>262</td>
+              <td style={{ padding: '12px' }}>"the"</td>
+              <td style={{ padding: '12px' }}>Common word (lowercase)</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px' }}>464</td>
+              <td style={{ padding: '12px' }}>"The"</td>
+              <td style={{ padding: '12px' }}>Capitalized version (different ID!)</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '12px' }}>20498</td>
+              <td style={{ padding: '12px' }}>"tokenization"</td>
+              <td style={{ padding: '12px' }}>Longer word, single token</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#e6f3ff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #2563eb',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>💡 Key Takeaway:</strong> Token IDs are the numerical representation of text that LLMs actually process. They're like social security numbers for words — a unique identifier that lets the model efficiently reference everything it knows about each token. When you send text to an API, it's converted to token IDs behind the scenes before the model ever sees it.
+        </p>
+      </div>
+    </div>
+  )
+    },
+    {
+  question: "What is embedding in Large Language Models?",
+  answer: (
+    <div>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#e6f3ff', 
+          padding: '15px', 
+          borderRadius: '8px',
+          borderLeft: '4px solid #2563eb',
+          marginBottom: '20px'
+        }}>
+          <strong>🎯 Quick Analogy:</strong> Imagine you're describing a person to someone. You could say "tall, friendly, loves basketball, speaks French, works as a doctor." That's 5 different dimensions of description. Embeddings are exactly that — but for words! Each word gets coordinates in a high-dimensional space where similar words cluster together.
+        </div>
+      </div>
+
+      <p><strong>The Big Idea: Words Become Vectors</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        An <strong>embedding</strong> is a dense vector (a list of numbers) that represents the meaning of a token. Instead of using a single ID (like 464 for "The"), we use hundreds of numbers that capture semantic meaning, context, and relationships. It's like giving every word its own GPS coordinates in "meaning space."
+      </div>
+
+      <p><strong>From Token ID to Rich Representation</strong></p>
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{
+          backgroundColor: '#1f2937',
+          color: '#e5e7eb',
+          padding: '20px',
+          borderRadius: '8px',
+          fontFamily: 'monospace',
+          fontSize: '1em',
+          marginBottom: '15px'
+        }}>
+          <div style={{ color: '#9ca3af', marginBottom: '10px' }}>Token ID: 464 ("The")</div>
+          
+          <div style={{ color: '#9ca3af', marginTop: '20px', marginBottom: '10px' }}>↓ Look up in embedding matrix ↓</div>
+          
+          <div style={{ color: '#9ca3af', marginTop: '20px', marginBottom: '10px' }}>📊 Embedding Vector (simplified - actual models use 768 to 4096 dimensions):</div>
+          <div style={{ backgroundColor: '#374151', padding: '15px', borderRadius: '8px' }}>
+            [0.23, -0.45, 0.89, 0.12, -0.67, 0.34, -0.78, 0.56, -0.23, 0.91, ...]<br/>
+            <span style={{ color: '#9ca3af' }}>(768 numbers like this for BERT, 4096 for GPT-3!)</span>
+          </div>
+        </div>
+        
+        <p style={{ fontSize: '0.9em', color: '#6b7280' }}>
+          ⚡ Each number represents some learned "feature" — maybe dimension 1 tracks formality, dimension 2 tracks gender, dimension 3 tracks abstractness, etc.
+        </p>
+      </div>
+
+      <p><strong>The Magic: Semantic Relationships</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '15px',
+          marginTop: '15px'
+        }}>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>👑 King - Man + Woman = Queen</div>
+            <div style={{ color: '#4b5563' }}>
+              The classic example! Embeddings capture analogies through vector arithmetic.
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🇫🇷 Paris - France + Italy = Rome</div>
+            <div style={{ color: '#4b5563' }}>
+              Capital city relationships emerge naturally from the embedding space.
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>📚 Similar Words Cluster</div>
+            <div style={{ color: '#4b5563' }}>
+              "dog", "puppy", "canine" have similar vectors; "car", "truck", "vehicle" form another cluster.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Visualizing the Embedding Space (2D projection of 768D)</strong></p>
+      <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+        <div style={{
+          backgroundColor: '#f9fafb',
+          padding: '20px',
+          borderRadius: '8px',
+          border: '1px solid #e5e7eb'
+        }}>
+          <pre style={{ fontFamily: 'monospace', fontSize: '0.9em', color: '#4b5563' }}>
+            ↑ Dimension 2<br/>
+            │        🐕 dogs<br/>
+            │        🐈 cats<br/>
+            │    🐎 horses<br/>
+            │                🚗 cars<br/>
+            │            🚲 bikes<br/>
+            │                        ✈️ planes<br/>
+            └────────────────────────────→ Dimension 1<br/>
+            <span style={{ color: '#9ca3af' }}>Animals cluster left, vehicles cluster right</span>
+          </pre>
+        </div>
+      </div>
+
+      <p><strong>How Embeddings Are Created: Training</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ol style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Start random:</strong> Initialize all word vectors with random numbers.</li>
+          <li><strong>Predict context:</strong> During training, the model learns to predict surrounding words (Word2Vec, GloVe) or masked words (BERT).</li>
+          <li><strong>Adjust vectors:</strong> If the model predicts "cat" should appear near "furry" and "pet", it adjusts their vectors to be closer.</li>
+          <li><strong>Repeat billions of times:</strong> After seeing enormous text, meaningful patterns emerge.</li>
+        </ol>
+      </div>
+
+      <p><strong>Embedding Dimensions Across Models</strong></p>
+      <div style={{ marginBottom: '20px', overflowX: 'auto' }}>
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          backgroundColor: '#ffffff',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <thead>
+            <tr style={{ backgroundColor: '#2563eb', color: '#ffffff' }}>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Model</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Embedding Size</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>What This Means</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>Word2Vec (2013)</td>
+              <td style={{ padding: '12px' }}>300 dimensions</td>
+              <td style={{ padding: '12px' }}>Pioneering but simpler</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>BERT-base</td>
+              <td style={{ padding: '12px' }}>768 dimensions</td>
+              <td style={{ padding: '12px' }}>Balanced size/performance</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>GPT-3</td>
+              <td style={{ padding: '12px' }}>4096 dimensions</td>
+              <td style={{ padding: '12px' }}>Richer representations</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '12px', fontWeight: '500' }}>GPT-4</td>
+              <td style={{ padding: '12px' }}>Unknown (likely 8192+)</td>
+              <td style={{ padding: '12px' }}>Even more nuanced</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#e6f3ff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #2563eb',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>💡 Key Takeaway:</strong> Embeddings are where meaning lives in LLMs. They transform discrete tokens into continuous vectors that capture semantic relationships, analogies, and context. The "meaning space" they create is so powerful that simple vector math can solve analogies, cluster related concepts, and enable the model to understand nuance. Every token gets a rich, multi-dimensional representation that evolves as it flows through the network.
+        </p>
+      </div>
+
+      <p style={{ marginTop: '20px', fontSize: '0.9em', color: '#6b7280' }}>
+        <strong>Explore further:</strong> Check out <a href="https://projector.tensorflow.org/" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">TensorFlow Embedding Projector</a> to visualize real embeddings, or read <a href="https://jalammar.github.io/illustrated-word2vec/" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">The Illustrated Word2Vec</a> for deeper understanding.
+      </p>
+    </div>
+  )
+    },
+    {
+  question: "How does self-attention mechanism work in Large Language Models?",
+  answer: (
+    <div>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#e6f3ff', 
+          padding: '15px', 
+          borderRadius: '8px',
+          borderLeft: '4px solid #2563eb',
+          marginBottom: '20px'
+        }}>
+          <strong>🎯 Quick Analogy:</strong> Imagine you're at a party trying to understand a conversation. You naturally pay more attention to certain people based on context — the person speaking loudly, the one who just asked you a question, or someone mentioning your name. Self-attention is like that, but for words! Each word looks at all other words and decides: "How much should I care about each of you right now?"
+        </div>
+      </div>
+
+      <p><strong>The Core Problem: Context Matters</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        Consider the word "bank" in these sentences:
+        <div style={{
+          backgroundColor: '#f9fafb',
+          padding: '15px',
+          borderRadius: '8px',
+          marginTop: '10px',
+          marginBottom: '10px'
+        }}>
+          "I need to go to the <strong>bank</strong> to withdraw money."<br/>
+          "We had a picnic by the river <strong>bank</strong>."
+        </div>
+        Same word, totally different meanings! Self-attention helps the model understand which meaning is correct by looking at surrounding words ("money" vs "river").
+      </div>
+
+      <p><strong>The Three Musketeers: Query, Key, Value</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '15px',
+          marginTop: '15px'
+        }}>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🔍 Query (Q)</div>
+            <div style={{ color: '#4b5563' }}>
+              <strong>What I'm looking for:</strong> Each word creates a query vector asking "What context do I need?"
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🔑 Key (K)</div>
+            <div style={{ color: '#4b5563' }}>
+              <strong>What I offer:</strong> Each word creates a key vector saying "Here's what information I have."
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>📦 Value (V)</div>
+            <div style={{ color: '#4b5563' }}>
+              <strong>What I give:</strong> The actual content each word contributes if it's relevant.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Step-by-Step: How Self-Attention Processes a Sentence</strong></p>
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{
+          backgroundColor: '#1f2937',
+          color: '#e5e7eb',
+          padding: '20px',
+          borderRadius: '8px',
+          fontFamily: 'monospace',
+          fontSize: '1em',
+          marginBottom: '15px'
+        }}>
+          <div style={{ color: '#9ca3af', marginBottom: '10px' }}>Input: "The animal didn't cross the street because it was tired"</div>
+          
+          <div style={{ marginTop: '20px' }}>
+            <div style={{ color: '#9ca3af', marginBottom: '10px' }}>Step 1: Each word creates Q, K, V vectors</div>
+            <div style={{ paddingLeft: '20px', color: '#d1d5db' }}>
+              "it" → Q_vector: [what does "it" refer to?]<br/>
+              "animal" → K_vector: [I'm a living thing, subject of sentence]<br/>
+              "street" → K_vector: [I'm a location, inanimate object]
+            </div>
+          </div>
+          
+          <div style={{ marginTop: '20px' }}>
+            <div style={{ color: '#9ca3af', marginBottom: '10px' }}>Step 2: Calculate attention scores (dot product of Q with all K's)</div>
+            <div style={{ paddingLeft: '20px', color: '#d1d5db' }}>
+              Q("it") · K("animal") = 0.95 (high attention — very relevant!)<br/>
+              Q("it") · K("street") = 0.15 (low attention — not relevant)<br/>
+              Q("it") · K("cross") = 0.45 (medium attention — somewhat relevant)
+            </div>
+          </div>
+          
+          <div style={{ marginTop: '20px' }}>
+            <div style={{ color: '#9ca3af', marginBottom: '10px' }}>Step 3: Apply softmax to get attention weights (all sum to 1)</div>
+            <div style={{ paddingLeft: '20px', color: '#d1d5db' }}>
+              "animal": 0.70 (70% attention)<br/>
+              "cross": 0.20 (20% attention)<br/>
+              "street": 0.05 (5% attention)<br/>
+              others: 0.05 (5% attention combined)
+            </div>
+          </div>
+          
+          <div style={{ marginTop: '20px' }}>
+            <div style={{ color: '#9ca3af', marginBottom: '10px' }}>Step 4: Weighted sum of Value vectors</div>
+            <div style={{ paddingLeft: '20px', color: '#d1d5db' }}>
+              Output("it") = 0.70×V("animal") + 0.20×V("cross") + 0.05×V("street") + ...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>The Math Behind the Magic (Simplified)</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          backgroundColor: '#f9fafb',
+          padding: '20px',
+          borderRadius: '8px',
+          fontFamily: 'monospace',
+          fontSize: '1.1em',
+          overflowX: 'auto'
+        }}>
+          <strong>Attention(Q,K,V) = softmax(QKᵀ/√dₖ)V</strong>
+          
+          <div style={{ marginTop: '15px', fontSize: '0.9em', color: '#4b5563' }}>
+            Where:<br/>
+            • QKᵀ = How well queries match keys (attention scores)<br/>
+            • √dₖ = Scaling factor (prevents extremely small gradients)<br/>
+            • softmax = Converts scores to probabilities that sum to 1<br/>
+            • V = Values to sum up based on attention weights
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Visual Attention Map: What Words Look At</strong></p>
+      <div style={{ marginBottom: '20px', overflowX: 'auto' }}>
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          backgroundColor: '#ffffff',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <thead>
+            <tr style={{ backgroundColor: '#2563eb', color: '#ffffff' }}>
+              <th style={{ padding: '12px' }}>Word</th>
+              <th style={{ padding: '12px' }}>The</th>
+              <th style={{ padding: '12px' }}>animal</th>
+              <th style={{ padding: '12px' }}>didn't</th>
+              <th style={{ padding: '12px' }}>cross</th>
+              <th style={{ padding: '12px' }}>the</th>
+              <th style={{ padding: '12px' }}>street</th>
+              <th style={{ padding: '12px' }}>because</th>
+              <th style={{ padding: '12px' }}>it</th>
+              <th style={{ padding: '12px' }}>was</th>
+              <th style={{ padding: '12px' }}>tired</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={{ padding: '12px', fontWeight: '500' }}>it</td>
+              <td style={{ padding: '12px', backgroundColor: '#e6f3ff' }}>0.02</td>
+              <td style={{ padding: '12px', backgroundColor: '#2563eb', color: 'white' }}>0.70</td>
+              <td style={{ padding: '12px', backgroundColor: '#e6f3ff' }}>0.03</td>
+              <td style={{ padding: '12px', backgroundColor: '#93c5fd' }}>0.15</td>
+              <td style={{ padding: '12px', backgroundColor: '#e6f3ff' }}>0.01</td>
+              <td style={{ padding: '12px', backgroundColor: '#bfdbfe' }}>0.05</td>
+              <td style={{ padding: '12px', backgroundColor: '#e6f3ff' }}>0.02</td>
+              <td style={{ padding: '12px', backgroundColor: '#e6f3ff' }}>0.01</td>
+              <td style={{ padding: '12px', backgroundColor: '#bfdbfe' }}>0.01</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style={{ fontSize: '0.9em', color: '#6b7280', marginTop: '10px' }}>
+          Darker blue = more attention. "it" pays most attention to "animal" to figure out what "it" refers to.
+        </p>
+      </div>
+
+      <p><strong>Why Self-Attention is Revolutionary</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>🌐 Long-range dependencies:</strong> Words can directly attend to any other word, no matter how far apart.</li>
+          <li><strong>⚡ Parallelizable:</strong> Unlike RNNs that process sequentially, attention computes all relationships simultaneously.</li>
+          <li><strong>🎯 Dynamic context:</strong> Attention weights change based on the input, not fixed like in older models.</li>
+          <li><strong>🔍 Interpretability:</strong> We can see what words focused on, helping debug model behavior.</li>
+          <li><strong>🧩 Compositional:</strong> Multiple attention heads can focus on different linguistic features (syntax, semantics, etc.).</li>
+        </ul>
+      </div>
+
+      <p><strong>Real Attention Patterns from Trained Models</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '15px'
+        }}>
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', marginBottom: '8px' }}>Head 3-1: Syntax Focus</div>
+            <div style={{ color: '#4b5563' }}>
+              Adjectives attend to nouns they modify<br/>
+              <em>"red" → "ball"</em>
+            </div>
+          </div>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', marginBottom: '8px' }}>Head 5-7: Coreference</div>
+            <div style={{ color: '#4b5563' }}>
+              Pronouns attend to their antecedents<br/>
+              <em>"they" → "researchers"</em>
+            </div>
+          </div>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', marginBottom: '8px' }}>Head 8-2: Positional</div>
+            <div style={{ color: '#4b5563' }}>
+              Tracks immediate neighbors in text<br/>
+              <em>"next" → "word"</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#e6f3ff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #2563eb',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>💡 Key Takeaway:</strong> Self-attention is the secret sauce that makes transformers so powerful. It allows each word to dynamically weigh the importance of every other word in the sequence, creating context-aware representations. By computing these attention patterns across multiple heads and layers, models build increasingly sophisticated understanding — from basic syntax in early layers to complex semantic relationships in deeper layers. It's not just about what words mean, but how they relate in any given context.
+        </p>
+      </div>
+
+      <p style={{ marginTop: '20px', fontSize: '0.9em', color: '#6b7280' }}>
+        <strong>Want to see attention in action?</strong> Check out <a href="https://github.com/jessevig/bertviz" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">BertViz</a> for interactive visualizations, or read <a href="https://jalammar.github.io/illustrated-transformer/" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">The Illustrated Transformer</a> for more detail.
+      </p>
+    </div>
+  )
+    },
+    {
       question: "How does self-attention work?",
       answer:
         "Self-attention allows the model to determine which words in a sentence are important by computing dot products between query and key vectors."
