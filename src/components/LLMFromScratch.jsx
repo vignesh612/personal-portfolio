@@ -9,14 +9,233 @@ export default function LLMFromScratch() {
         "A Large Language Model is a neural network trained on massive text datasets to understand and generate human-like language."
     },
     {
+  question: "What are tokens in Large Language Models?",
+  answer: (
+    <div>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#e6f3ff', 
+          padding: '15px', 
+          borderRadius: '8px',
+          borderLeft: '4px solid #2563eb',
+          marginBottom: '20px'
+        }}>
+          <strong>🎯 Quick Analogy:</strong> Think of tokens like LEGO bricks. Just as you build complex structures by connecting individual LEGO pieces, language models build understanding by processing text as individual tokens. Some bricks are small (single letters), some are larger (whole words), but together they create everything from simple sentences to entire books.
+        </div>
+      </div>
+
+      <p><strong>The Basic Concept: What Exactly Is a Token?</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        In the world of Large Language Models, a <strong>token</strong> is the basic unit of text that the model processes. It's how we break down human language into pieces that a computer can understand and work with. Think of it as the "atom" of language for AI — the smallest meaningful chunk that the model can process.
+      </div>
+
+      <p><strong>Tokens Come in Different Flavors</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        Depending on the tokenizer (the system that chops up text), tokens can be:
+        
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '15px',
+          marginTop: '15px'
+        }}>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>📝 Whole Words</div>
+            <div style={{ color: '#4b5563' }}>"apple" → ["apple"]<br/>"running" → ["running"]</div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🔤 Subwords</div>
+            <div style={{ color: '#4b5563' }}>"unbelievable" → ["un", "believe", "able"]<br/>"playing" → ["play", "ing"]</div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🔡 Individual Characters</div>
+            <div style={{ color: '#4b5563' }}>"cat" → ["c", "a", "t"]<br/>"hello" → ["h", "e", "l", "l", "o"]</div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Why Can't We Just Use Words?</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#f9fafb', 
+          padding: '15px', 
+          borderRadius: '8px',
+          marginBottom: '15px'
+        }}>
+          Great question! Here's why subword tokens (the most common approach) are brilliant:
+        </div>
+        
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>📚 Vocabulary size:</strong> English has ~170,000 words. A model can't have embeddings for all of them (too big!). Tokens keep vocabulary manageable (typically 30,000-50,000 pieces).</li>
+          <li><strong>✨ Handles new words:</strong> When the model sees "cryptocurrency" for the first time, it can break it into ["crypto", "currency"] — words it already knows!</li>
+          <li><strong>🔤 Handles typos:</strong> "teh" can be understood as ["te", "h"] or recognized as a common misspelling of "the".</li>
+          <li><strong>🌍 Language efficiency:</strong> Works across languages — German compound words can be split, Chinese characters can be handled individually.</li>
+        </ul>
+      </div>
+
+      <p><strong>Visualizing Tokenization: Before and After</strong></p>
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{
+          backgroundColor: '#1f2937',
+          color: '#e5e7eb',
+          padding: '20px',
+          borderRadius: '8px',
+          fontFamily: 'monospace',
+          fontSize: '1em',
+          marginBottom: '15px'
+        }}>
+          <div style={{ color: '#9ca3af', marginBottom: '10px' }}>📥 Input Text:</div>
+          <div>"I love learning about artificial intelligence!"</div>
+          
+          <div style={{ color: '#9ca3af', marginTop: '20px', marginBottom: '10px' }}>📤 Tokenized Output (simplified):</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            <span style={tokenPill}>["I"</span>
+            <span style={tokenPill}>"love"</span>
+            <span style={tokenPill}>"learning"</span>
+            <span style={tokenPill}>"about"</span>
+            <span style={tokenPill}>"art"</span>
+            <span style={tokenPill}>"ificial"</span>
+            <span style={tokenPill}>"intelligence"</span>
+            <span style={tokenPill}>"!"]</span>
+          </div>
+        </div>
+        
+        <p style={{ fontSize: '0.9em', color: '#6b7280' }}>
+          ⚡ Notice how "artificial" was split into ["art", "ificial"] — common subwords that help the model understand similar words like "artisan" or "superficial".
+        </p>
+      </div>
+
+      <p><strong>How Tokenization Works in Practice</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ol style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Text Normalization:</strong> Convert to lowercase, handle Unicode, normalize special characters.</li>
+          <li><strong>Pre-tokenization:</strong> Split text into words and punctuation (using spaces and rules).</li>
+          <li><strong>Subword Segmentation:</strong> Apply algorithms like <a href="https://en.wikipedia.org/wiki/Byte_pair_encoding" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">Byte-Pair Encoding (BPE)</a> or WordPiece to split words into optimal subword units.</li>
+          <li><strong>Map to IDs:</strong> Convert each token to its numerical ID from the model's vocabulary.</li>
+        </ol>
+      </div>
+
+      <p><strong>Tokens = Money 💰</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          backgroundColor: '#fef3c7',
+          padding: '15px',
+          borderRadius: '8px',
+          borderLeft: '4px solid #f59e0b',
+          marginBottom: '15px'
+        }}>
+          <strong>Important for API users:</strong> Most LLM APIs (OpenAI, Anthropic, etc.) charge by the token — both input AND output. A typical English sentence might be:
+          <ul style={{ marginTop: '10px', marginBottom: '0' }}>
+            <li>1 token ≈ 4 characters in English</li>
+            <li>1 token ≈ ¾ of a word</li>
+            <li>750 words ≈ 1000 tokens</li>
+          </ul>
+        </div>
+        
+        <div style={{
+          backgroundColor: '#ffffff',
+          padding: '15px',
+          borderRadius: '8px',
+          border: '1px solid #e5e7eb',
+          marginTop: '15px'
+        }}>
+          <strong>💰 Cost Example:</strong><br/>
+          "The quick brown fox jumps over the lazy dog"<br/>
+          <span style={{ color: '#4b5563' }}>→ ~9-10 tokens<br/>
+          → If GPT-4 costs $0.03 per 1K tokens, this sentence costs ~$0.0003</span>
+        </div>
+      </div>
+
+      <p><strong>Tokenization Across Different Languages</strong></p>
+      <div style={{ marginBottom: '20px', overflowX: 'auto' }}>
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          backgroundColor: '#ffffff',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <thead>
+            <tr style={{ backgroundColor: '#2563eb', color: '#ffffff' }}>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Language</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Text</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Approx. Tokens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>English</td>
+              <td style={{ padding: '12px' }}>"Hello, how are you?"</td>
+              <td style={{ padding: '12px' }}>5-6 tokens</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>German</td>
+              <td style={{ padding: '12px' }}>"Donaudampfschifffahrtsgesellschaftskapitän"</td>
+              <td style={{ padding: '12px' }}>5-7 tokens (breaks into parts)</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '12px', fontWeight: '500' }}>Chinese</td>
+              <td style={{ padding: '12px' }}>"你好，最近怎么样？"</td>
+              <td style={{ padding: '12px' }}>8-10 tokens (1-2 per character)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Practical Tips for Working with Tokens</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>📏 Stay under limits:</strong> Models have max token limits (e.g., GPT-4: 8K, 32K, or 128K tokens).</li>
+          <li><strong>✂️ Be concise:</strong> Shorter prompts = fewer tokens = cheaper & faster responses.</li>
+          <li><strong>🔍 Use tokenizers:</strong> Most providers offer <a href="https://platform.openai.com/tokenizer" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">online tokenizers</a> to check your text.</li>
+          <li><strong>💡 Whitespace matters:</strong> Spaces often count as part of tokens — "hello" and "hello " tokenize differently.</li>
+        </ul>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#e6f3ff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #2563eb',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>💡 Key Takeaway:</strong> Tokens are the fundamental building blocks that LLMs use to understand and generate language. They're not quite words and not quite letters — they're an optimized middle ground that balances vocabulary size with expressiveness. Understanding tokens helps you write better prompts, estimate costs, and debug why your model sometimes "sees" text differently than you do.
+        </p>
+      </div>
+
+      <p style={{ marginTop: '20px', fontSize: '0.9em', color: '#6b7280' }}>
+        <strong>Want to play with tokens?</strong> Try OpenAI's <a href="https://platform.openai.com/tokenizer" style={{ color: '#2563eb', textDecoration: 'none', fontWeight: '500', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">Tokenizer Tool</a> or check out <a href="https://huggingface.co/docs/transformers/tokenizer_summary" style={{ color: '#2563eb', textDecoration: 'none', fontWeight: '500', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">Hugging Face's tokenizer documentation</a> for deeper understanding.
+      </p>
+    </div>
+  )
+    },
+    {
       question: "How does self-attention work?",
       answer:
         "Self-attention allows the model to determine which words in a sentence are important by computing dot products between query and key vectors."
-    },
-    {
-      question: "What are tokens?",
-      answer:
-        "Tokens are numerical representations of words or subwords that the model processes."
     },
     {
       question: "What is fine-tuning?",
@@ -377,6 +596,15 @@ const llm_styles = {
     color: "#2563eb",
     fontWeight: "bold",
   },
+};
+
+const tokenPill = {
+  backgroundColor: '#374151',
+  color: '#e5e7eb',
+  padding: '4px 8px',
+  borderRadius: '4px',
+  fontFamily: 'monospace',
+  fontSize: '0.9em'
 };
 
 
