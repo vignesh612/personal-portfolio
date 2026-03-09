@@ -239,23 +239,23 @@ export default function LLMFromScratch() {
   };
 
   return (
-    <div style={kuber_styles.blogPage}>
+    <div style={llm_styles.blogPage}>
       <h1>🚀 Kubernetes Blog</h1>
       <p>
         Learn container orchestration, scaling, pods, services, deployments, and production architecture.
       </p>
 
-      <div style={kuber_styles.faqContainer}>
+      <div style={llm_styles.faqContainer}>
         {faqs.map((faq, index) => (
-          <div key={index} style={kuber_styles.faqItem}>
+          <div key={index} style={llm_styles.faqItem}>
             <button
               onClick={() => toggleFAQ(index)}
-              style={kuber_styles.faqButton}
+              style={llm_styles.faqButton}
             >
               {faq.question} {openIndex === index ? "▲" : "▼"}
             </button>
             {openIndex === index && (
-              <div style={kuber_styles.faqAnswer}>{faq.answer}</div>
+              <div style={llm_styles.faqAnswer}>{faq.answer}</div>
             )}
           </div>
         ))}
