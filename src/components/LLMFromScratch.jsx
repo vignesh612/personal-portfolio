@@ -1055,11 +1055,6 @@ export default function LLMFromScratch() {
   )
     },
     {
-      question: "What is fine-tuning?",
-      answer:
-        "Fine-tuning is the process of training a pretrained LLM further on domain-specific data to improve performance on specialized tasks."
-    },
-    {
         question: "What is Multi-Head Attention in Large Language Models?",
   answer: (
     <div>
