@@ -4,10 +4,181 @@ import { Link } from 'react-router-dom';
 export default function LLMFromScratch() {
   const faqs =  [
     {
-      question: "What is a Large Language Model (LLM)?",
-      answer:
-        "A Large Language Model is a neural network trained on massive text datasets to understand and generate human-like language."
-    },
+  question: "What is a Large Language Model (LLM)?",
+  answer: (
+    <div>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#e6f3ff', 
+          padding: '15px', 
+          borderRadius: '8px',
+          borderLeft: '4px solid #2563eb',
+          marginBottom: '20px'
+        }}>
+          <strong>🎯 Quick Analogy:</strong> Imagine a librarian who has read billions of books, articles, and websites. You can ask this librarian to write an essay, summarize a document, answer questions, translate languages, or even write code — all without any special training for each task. That's essentially what an LLM is: a massive neural network trained on vast amounts of text that can perform a wide variety of language tasks [citation:1].
+        </div>
+      </div>
+
+      <p><strong>Definition: What Makes a Model "Large"?</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        A <strong>Large Language Model (LLM)</strong> is a type of deep learning model trained on enormous amounts of text data, typically containing billions of parameters. These models are built on the transformer architecture, which uses self-attention mechanisms to understand relationships between words [citation:1]. The "large" refers to three dimensions:
+        
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8', marginTop: '15px' }}>
+          <li><strong>📊 Model Size:</strong> Hundreds of millions to trillions of parameters (GPT-3: 175B, GPT-4: estimated 1.76T)</li>
+          <li><strong>📚 Training Data:</strong> Trained on terabytes of text — books, websites, academic papers, code repositories</li>
+          <li><strong>⚡ Computational Resources:</strong> Requires thousands of GPUs running for weeks or months</li>
+        </ul>
+      </div>
+
+      <p><strong>Key Characteristics of LLMs</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '15px',
+          marginTop: '15px'
+        }}>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🔮 Emergent Abilities</div>
+            <div style={{ color: '#4b5563' }}>
+              Capabilities that appear only at scale — reasoning, in-context learning, step-by-step problem solving — that smaller models don't exhibit.
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🎯 Few-Shot Learning</div>
+            <div style={{ color: '#4b5563' }}>
+              Can perform new tasks with just a few examples in the prompt, without any parameter updates [citation:1].
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px', fontSize: '1.1em' }}>🌐 General Purpose</div>
+            <div style={{ color: '#4b5563' }}>
+              One model handles translation, summarization, coding, creative writing, and more — no task-specific training needed [citation:6].
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Popular LLM Families</strong></p>
+      <div style={{ marginBottom: '20px', overflowX: 'auto' }}>
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          backgroundColor: '#ffffff',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <thead>
+            <tr style={{ backgroundColor: '#2563eb', color: '#ffffff' }}>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Model Family</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Creator</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Notable Versions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>GPT</td>
+              <td style={{ padding: '12px' }}>OpenAI</td>
+              <td style={{ padding: '12px' }}>GPT-3 (175B), GPT-4, ChatGPT</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>Claude</td>
+              <td style={{ padding: '12px' }}>Anthropic</td>
+              <td style={{ padding: '12px' }}>Claude 3 Opus, Sonnet, Haiku</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>LLaMA</td>
+              <td style={{ padding: '12px' }}>Meta</td>
+              <td style={{ padding: '12px' }}>LLaMA 2, LLaMA 3 (8B-70B), LLaMA 3.2 (1B-3B)</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>Gemini</td>
+              <td style={{ padding: '12px' }}>Google</td>
+              <td style={{ padding: '12px' }}>Gemini Ultra, Pro, Nano</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '12px', fontWeight: '500' }}>DeepSeek</td>
+              <td style={{ padding: '12px' }}>DeepSeek</td>
+              <td style={{ padding: '12px' }}>DeepSeek-R1, DeepSeek-V3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Applications of LLMs</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>✍️ Content Creation:</strong> Writing articles, marketing copy, emails, social media posts [citation:1]</li>
+          <li><strong>💬 Conversational AI:</strong> Chatbots, virtual assistants, customer service automation [citation:1]</li>
+          <li><strong>📝 Summarization:</strong> Condensing long documents, research papers, meeting notes</li>
+          <li><strong>🌍 Translation:</strong> Translating between hundreds of languages</li>
+          <li><strong>👩‍💻 Code Generation:</strong> Writing, explaining, and debugging code (GitHub Copilot, CodeWhisperer) [citation:1]</li>
+          <li><strong>📊 Classification:</strong> Sentiment analysis, topic categorization, spam detection [citation:1]</li>
+          <li><strong>🔍 Knowledge Retrieval:</strong> Answering questions based on provided documents (RAG applications)</li>
+        </ul>
+      </div>
+
+      <p><strong>How LLMs Are Built: The Three Pillars</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ol style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Architecture:</strong> Transformer-based with self-attention mechanisms, feed-forward networks, and normalization layers [citation:1]</li>
+          <li><strong>Data:</strong> Massive, diverse text corpora (Common Crawl, Wikipedia, books, Reddit, GitHub)</li>
+          <li><strong>Scale:</strong> Billions of parameters trained on thousands of GPUs for weeks or months</li>
+        </ol>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#fff4e6', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #f97316',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>⚠️ Important Limitations:</strong> LLMs can hallucinate (make up facts), have knowledge cutoffs, lack true understanding, can be biased, and require significant computational resources [citation:6]. They're pattern matchers, not reasoning engines — though reasoning abilities emerge at scale.
+        </p>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#e6f3ff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #2563eb',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>💡 Key Takeaway:</strong> LLMs are foundation models trained on internet-scale data that can perform a vast array of language tasks without task-specific training. Their power comes from scale — of data, parameters, and computation — which enables emergent abilities that smaller models simply don't possess [citation:1][citation:6].
+        </p>
+      </div>
+
+      <p style={{ marginTop: '20px', fontSize: '0.9em', color: '#6b7280' }}>
+        <strong>Further reading:</strong> <a href="https://aws.amazon.com/what-is/large-language-model/" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">AWS LLM Guide</a> or Andrej Karpathy's <a href="https://www.youtube.com/watch?v=7xTGNNLPyMI" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">intro to LLMs</a>.
+      </p>
+    </div>
+  )
+   },
     {
   question: "What are tokens in Large Language Models?",
   answer: (
@@ -1097,8 +1268,850 @@ export default function LLMFromScratch() {
       </p>
     </div>
   )
-    }
-     
+    },
+   {
+  question: "What is the general workflow of developing Large Language Models?",
+  answer: (
+    <div>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#e6f3ff', 
+          padding: '15px', 
+          borderRadius: '8px',
+          borderLeft: '4px solid #2563eb',
+          marginBottom: '20px'
+        }}>
+          <strong>🎯 Quick Analogy:</strong> Building an LLM is like raising a child. First, they absorb everything around them (pre-training). Then you teach them how to have conversations (chat training). Finally, they practice specific skills with feedback (fine-tuning). Each stage builds on the last, and skipping steps leads to gaps in knowledge or behavior [citation:2][citation:6].
+        </div>
+      </div>
+
+      <p><strong>Stage 1: Data Collection & Preparation</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          backgroundColor: '#f9fafb',
+          padding: '15px',
+          borderRadius: '8px',
+          marginBottom: '10px'
+        }}>
+          <strong>Goal:</strong> Gather and clean massive amounts of text data.
+        </div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Sources:</strong> Common Crawl (billions of web pages), Wikipedia, books, academic papers, GitHub, Reddit [citation:1]</li>
+          <li><strong>Cleaning:</strong> Remove duplicates, filter low-quality content, handle HTML/markup, deduplicate</li>
+          <li><strong>Tokenization:</strong> Train a tokenizer (BPE, WordPiece, Unigram) to break text into tokens [citation:7]</li>
+          <li><strong>Scale:</strong> Typically terabytes of text — GPT-3 was trained on 570GB of data [citation:1]</li>
+        </ul>
+      </div>
+
+      <p><strong>Stage 2: Model Architecture Design</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          backgroundColor: '#f9fafb',
+          padding: '15px',
+          borderRadius: '8px',
+          marginBottom: '10px'
+        }}>
+          <strong>Goal:</strong> Define the neural network structure.
+        </div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Base Architecture:</strong> Transformer decoder (GPT-style) or encoder-decoder (T5-style) [citation:1]</li>
+          <li><strong>Key Decisions:</strong> Number of layers, hidden dimensions, attention heads, feed-forward expansion factor [citation:7]</li>
+          <li><strong>Size Selection:</strong> Choose model scale based on compute budget — from 1M parameters (nano) to 1T+ (frontier) [citation:7]</li>
+        </ul>
+      </div>
+
+      <p><strong>Stage 3: Pre-training (The Expensive Part)</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          backgroundColor: '#1f2937',
+          color: '#e5e7eb',
+          padding: '20px',
+          borderRadius: '8px',
+          fontFamily: 'monospace',
+          fontSize: '0.95em',
+          marginBottom: '15px'
+        }}>
+          <div style={{ color: '#9ca3af', marginBottom: '10px' }}>🎯 Objective: Predict next token (causal language modeling)</div>
+          <div style={{ color: '#9ca3af', marginBottom: '10px' }}>📊 Loss: Cross-entropy between predicted and actual next token</div>
+          <div style={{ color: '#9ca3af', marginBottom: '10px' }}>⚡ Scale: Thousands of GPUs for weeks/months</div>
+          <div style={{ color: '#9ca3af' }}>💰 Cost: $1M-$100M+ for frontier models</div>
+        </div>
+        
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Unsupervised Learning:</strong> Model learns by predicting missing words — no labels needed [citation:1]</li>
+          <li><strong>What's Learned:</strong> Grammar, facts, reasoning patterns, world knowledge, coding abilities [citation:6]</li>
+          <li><strong>Result:</strong> Base model that can complete text but doesn't follow instructions well</li>
+        </ul>
+      </div>
+
+      <p><strong>Stage 4: Supervised Fine-Tuning (SFT) — Teaching Conversation</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          backgroundColor: '#f9fafb',
+          padding: '15px',
+          borderRadius: '8px',
+          marginBottom: '10px'
+        }}>
+          <strong>Goal:</strong> Teach the model to follow instructions and have conversations.
+        </div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Data:</strong> Human-written prompt-response pairs (e.g., "Explain quantum physics" → detailed explanation) [citation:6]</li>
+          <li><strong>Process:</strong> Continue training on these examples to align with human preferences</li>
+          <li><strong>Scale:</strong> Typically 10k-100k examples, much smaller than pre-training</li>
+        </ul>
+      </div>
+
+      <p><strong>Stage 5: Reinforcement Learning from Human Feedback (RLHF)</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{
+          backgroundColor: '#f9fafb',
+          padding: '15px',
+          borderRadius: '8px',
+          marginBottom: '10px'
+        }}>
+          <strong>Goal:</strong> Fine-tune based on human preferences for helpfulness, honesty, harmlessness.
+        </div>
+        <ol style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Collect comparisons:</strong> Humans rank multiple model outputs (which answer is better?) [citation:6]</li>
+          <li><strong>Train reward model:</strong> Learn to predict human preferences</li>
+          <li><strong>Optimize policy:</strong> Use reinforcement learning (PPO) to maximize reward while staying close to original model</li>
+        </ol>
+      </div>
+
+      <p><strong>Stage 6: Evaluation & Alignment</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '15px',
+          marginTop: '15px'
+        }}>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px' }}>📊 Benchmarks</div>
+            <div style={{ color: '#4b5563' }}>
+              MMLU (knowledge), HumanEval (coding), GSM8K (math), HELM (holistic evaluation) [citation:2]
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px' }}>🔍 Safety Testing</div>
+            <div style={{ color: '#4b5563' }}>
+              Red-teaming, bias evaluation, jailbreak attempts, harmful content filtering
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#1f2937', marginBottom: '8px' }}>🧪 Human Evaluation</div>
+            <div style={{ color: '#4b5563' }}>
+              Side-by-side comparisons, preference ratings, real-world testing
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Stage 7: Deployment & Serving</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Optimization:</strong> Quantization (FP16 → INT8/INT4), pruning, KV cache optimization [citation:10]</li>
+          <li><strong>Serving Frameworks:</strong> vLLM, TensorRT-LLM, TGI, llama.cpp [citation:2]</li>
+          <li><strong>Infrastructure:</strong> Load balancing, auto-scaling, monitoring (Latency, throughput, error rates)</li>
+        </ul>
+      </div>
+
+      <p><strong>Stage 8: Continuous Improvement</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Monitor:</strong> Track user feedback, errors, edge cases</li>
+          <li><strong>Collect:</strong> Gather new training data from problematic cases</li>
+          <li><strong>Update:</strong> Fine-tune periodically with new data (avoid catastrophic forgetting) [citation:9]</li>
+        </ul>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#e6f3ff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #2563eb',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>💡 Key Takeaway:</strong> Developing an LLM is a multi-stage pipeline requiring expertise in data engineering, distributed training, alignment techniques, and deployment optimization. Most organizations skip pre-training (too expensive) and focus on fine-tuning existing base models for specific use cases [citation:2][citation:9].
+        </p>
+      </div>
+
+      <p style={{ marginTop: '20px', fontSize: '0.9em', color: '#6b7280' }}>
+        <strong>Tools to explore:</strong> <a href="https://github.com/swapnilwaramwar/LLM-engineer-handbook" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">LLM Engineer Handbook</a> and <a href="https://www.npmjs.com/package/create-llm" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">create-llm</a> for scaffolding projects.
+      </p>
+    </div>
+  )
+  },
+   {
+  question: "What are activation functions in Large Language Models?",
+  answer: (
+    <div>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#e6f3ff', 
+          padding: '15px', 
+          borderRadius: '8px',
+          borderLeft: '4px solid #2563eb',
+          marginBottom: '20px'
+        }}>
+          <strong>🎯 Quick Analogy:</strong> Imagine a light dimmer switch. Without it, lights are either on or off (linear). With it, you can have infinite brightness levels (non-linear). Activation functions are the "dimmer switches" of neural networks — they introduce non-linearity, allowing the model to learn complex patterns that simple on/off switches never could [citation:3].
+        </div>
+      </div>
+
+      <p><strong>Why Activation Functions Matter in Transformers</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        The attention mechanism in transformers performs <strong>linear transformations</strong> — weighted sums of inputs. Without activation functions, stacking multiple layers would still be mathematically equivalent to a single linear layer. Activation functions introduce <strong>non-linearity</strong>, enabling the model to learn complex, hierarchical representations [citation:3].
+        
+        <div style={{
+          backgroundColor: '#f9fafb',
+          padding: '15px',
+          borderRadius: '8px',
+          marginTop: '15px',
+          fontFamily: 'monospace'
+        }}>
+          Linear only: output = W₂(W₁x) = (W₂W₁)x → still linear!<br/>
+          With activation: output = W₂(activation(W₁x)) → non-linear!
+        </div>
+      </div>
+
+      <p><strong>Where Activation Functions Live: The FFN Layer</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        In every transformer block, after the attention layer, there's a <strong>Feed-Forward Network (FFN)</strong> or MLP sublayer. The typical structure is [citation:3][citation:8]:
+        
+        <div style={{
+          backgroundColor: '#1f2937',
+          color: '#e5e7eb',
+          padding: '20px',
+          borderRadius: '8px',
+          fontFamily: 'monospace',
+          fontSize: '0.95em',
+          marginTop: '15px'
+        }}>
+          hidden_states = self.fc1(hidden_states)    # Expand dimension (e.g., 768 → 3072)<br/>
+          hidden_states = self.activation(hidden_states)  # 👈 Non-linearity!<br/>
+          hidden_states = self.fc2(hidden_states)    # Contract back (3072 → 768)
+        </div>
+        
+        <p style={{ marginTop: '10px' }}>The intermediate dimension is typically <strong>4× the model dimension</strong> — a design pattern found across transformers [citation:3].</p>
+      </div>
+
+      <p><strong>Common Activation Functions in LLMs</strong></p>
+      <div style={{ marginBottom: '25px' }}>
+        
+        <div style={{ marginBottom: '20px' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>🧪 ReLU (Rectified Linear Unit)</div>
+          <div style={{
+            backgroundColor: '#f9fafb',
+            padding: '10px',
+            borderRadius: '6px',
+            fontFamily: 'monospace',
+            marginBottom: '8px'
+          }}>
+            f(x) = max(0, x)
+          </div>
+          <ul style={{ paddingLeft: '20px' }}>
+            <li><strong>Pros:</strong> Simple, computationally efficient, avoids vanishing gradient</li>
+            <li><strong>Cons:</strong> Dead neurons (gradients zero for negative inputs)</li>
+            <li><strong>Used in:</strong> Early transformers, some CNN architectures [citation:3]</li>
+          </ul>
+        </div>
+
+        <div style={{ marginBottom: '20px' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>📈 GELU (Gaussian Error Linear Unit)</div>
+          <div style={{
+            backgroundColor: '#f9fafb',
+            padding: '10px',
+            borderRadius: '6px',
+            fontFamily: 'monospace',
+            marginBottom: '8px'
+          }}>
+            f(x) = x · Φ(x)  (Φ is standard normal CDF)<br/>
+            ≈ x · sigmoid(1.702x)  (approximation)
+          </div>
+          <ul style={{ paddingLeft: '20px' }}>
+            <li><strong>Characteristics:</strong> Smooth, non-monotonic, weights inputs by their probability</li>
+            <li><strong>Used in:</strong> BERT, GPT, ViT (Vision Transformer) [citation:3][citation:8]</li>
+          </ul>
+        </div>
+
+        <div style={{ marginBottom: '20px' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>🔀 Swish / SiLU (Sigmoid Linear Unit)</div>
+          <div style={{
+            backgroundColor: '#f9fafb',
+            padding: '10px',
+            borderRadius: '6px',
+            fontFamily: 'monospace',
+            marginBottom: '8px'
+          }}>
+            f(x) = x · sigmoid(βx)  (Swish)<br/>
+            SiLU = Swish with β=1
+          </div>
+          <ul style={{ paddingLeft: '20px' }}>
+            <li><strong>Characteristics:</strong> Smooth, non-monotonic, self-gated</li>
+            <li><strong>Used in:</strong> MobileViT, some modern architectures [citation:3]</li>
+          </ul>
+        </div>
+
+        <div style={{ marginBottom: '20px' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>⚡ SwiGLU (Swish-Gated Linear Unit)</div>
+          <div style={{
+            backgroundColor: '#f9fafb',
+            padding: '10px',
+            borderRadius: '6px',
+            fontFamily: 'monospace',
+            marginBottom: '8px'
+          }}>
+            f(x) = SiLU(xW + b) ⊗ (xV + c)
+          </div>
+          <ul style={{ paddingLeft: '20px' }}>
+            <li><strong>Characteristics:</strong> Gated mechanism, two linear projections multiplied</li>
+            <li><strong>Used in:</strong> LLaMA, PaLM, most modern LLMs [citation:3][citation:8]</li>
+          </ul>
+          <div style={{
+            backgroundColor: '#1f2937',
+            color: '#e5e7eb',
+            padding: '15px',
+            borderRadius: '6px',
+            fontFamily: 'monospace',
+            fontSize: '0.9em',
+            marginTop: '10px'
+          }}>
+            # LLaMA's MLP implementation<br/>
+            gate = self.gate_proj(hidden_states)   # Linear<br/>
+            up = self.up_proj(hidden_states)       # Linear<br/>
+            swish = self.act(up)                    # SiLU activation<br/>
+            output = self.down_proj(swish * gate)   # Multiply then linear
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Activation Function Comparison</strong></p>
+      <div style={{ marginBottom: '20px', overflowX: 'auto' }}>
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          backgroundColor: '#ffffff',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <thead>
+            <tr style={{ backgroundColor: '#2563eb', color: '#ffffff' }}>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Function</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Monotonic?</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Smooth?</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Computational Cost</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Used In</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px' }}>ReLU</td>
+              <td style={{ padding: '12px' }}>✅ Yes</td>
+              <td style={{ padding: '12px' }}>❌ No (kink at 0)</td>
+              <td style={{ padding: '12px' }}>Very low</td>
+              <td style={{ padding: '12px' }}>Early transformers</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px' }}>GELU</td>
+              <td style={{ padding: '12px' }}>❌ No</td>
+              <td style={{ padding: '12px' }}>✅ Yes</td>
+              <td style={{ padding: '12px' }}>Medium</td>
+              <td style={{ padding: '12px' }}>BERT, GPT-2/3</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px' }}>SiLU/Swish</td>
+              <td style={{ padding: '12px' }}>❌ No</td>
+              <td style={{ padding: '12px' }}>✅ Yes</td>
+              <td style={{ padding: '12px' }}>Medium</td>
+              <td style={{ padding: '12px' }}>MobileViT</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '12px' }}>SwiGLU</td>
+              <td style={{ padding: '12px' }}>❌ No</td>
+              <td style={{ padding: '12px' }}>✅ Yes</td>
+              <td style={{ padding: '12px' }}>Higher (two linear layers)</td>
+              <td style={{ padding: '12px' }}>LLaMA, PaLM, Gemma</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Why Modern LLMs Prefer GELU and SwiGLU</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>📈 Better gradient flow:</strong> Smooth functions avoid the "dead neuron" problem of ReLU [citation:3]</li>
+          <li><strong>🧠 Richer representations:</strong> Non-monotonic functions can model more complex patterns</li>
+          <li><strong>🔬 Empirical performance:</strong> Consistently better on downstream tasks</li>
+          <li><strong>⚡ Hardware-friendly:</strong> Modern GPUs have fast implementations of these functions</li>
+        </ul>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#e6f3ff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #2563eb',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>💡 Key Takeaway:</strong> Activation functions inject non-linearity into transformers, enabling them to learn complex patterns. The evolution from ReLU → GELU → SwiGLU represents a trade-off: more sophisticated functions capture richer representations at slightly higher computational cost. Modern LLMs almost exclusively use GELU or SwiGLU [citation:3][citation:8].
+        </p>
+      </div>
+
+      <p style={{ marginTop: '20px', fontSize: '0.9em', color: '#6b7280' }}>
+        <strong>Deep dive:</strong> <a href="https://machinelearningmastery.com/linear-layers-and-activation-functions-in-transformer-models/" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">Linear Layers and Activation Functions in Transformer Models</a> or the <a href="https://arxiv.org/abs/2002.05202" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">GLU Variants paper</a>.
+      </p>
+    </div>
+  )
+  },
+  {
+  question: "What is LLM Fine-tuning?",
+  answer: (
+    <div>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#e6f3ff', 
+          padding: '15px', 
+          borderRadius: '8px',
+          borderLeft: '4px solid #2563eb',
+          marginBottom: '20px'
+        }}>
+          <strong>🎯 Quick Analogy:</strong> Imagine a medical school graduate (pre-trained model). They have general medical knowledge but can't perform heart surgery. A cardiology fellowship (fine-tuning) trains them specifically on heart procedures using specialized cases. They retain their general knowledge but gain expertise in one area. That's fine-tuning — specializing a general model for specific tasks [citation:9].
+        </div>
+      </div>
+
+      <p><strong>Definition: What is Fine-tuning?</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <strong>Fine-tuning</strong> is the process of taking a pre-trained language model and further training it on a smaller, task-specific dataset to adapt it for particular use cases. Unlike pre-training (which teaches general language understanding), fine-tuning specializes the model for domains like medicine, law, or specific company documentation [citation:1][citation:9].
+      </div>
+
+      <p><strong>Fine-tuning vs. Other Adaptation Methods</strong></p>
+      <div style={{ marginBottom: '20px', overflowX: 'auto' }}>
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          backgroundColor: '#ffffff',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <thead>
+            <tr style={{ backgroundColor: '#2563eb', color: '#ffffff' }}>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Method</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Description</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Parameters Updated</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Data Needed</th>
+              <th style={{ padding: '12px', textAlign: 'left' }}>Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>Prompt Engineering</td>
+              <td style={{ padding: '12px' }}>Crafting effective prompts</td>
+              <td style={{ padding: '12px' }}>None</td>
+              <td style={{ padding: '12px' }}>0 examples</td>
+              <td style={{ padding: '12px' }}>Quick experiments</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>Few-Shot Learning</td>
+              <td style={{ padding: '12px' }}>Examples in prompt</td>
+              <td style={{ padding: '12px' }}>None</td>
+              <td style={{ padding: '12px' }}>5-10 examples</td>
+              <td style={{ padding: '12px' }}>Prototyping</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}>PEFT (LoRA, Adapters)</td>
+              <td style={{ padding: '12px' }}>Train small adapters</td>
+              <td style={{ padding: '12px' }}>1% of parameters</td>
+              <td style={{ padding: '12px' }}>100-1,000 examples</td>
+              <td style={{ padding: '12px' }}>Efficient specialization</td>
+            </tr>
+            <tr>
+              <td style={{ padding: '12px', fontWeight: '500' }}>Full Fine-tuning</td>
+              <td style={{ padding: '12px' }}>Update all weights</td>
+              <td style={{ padding: '12px' }}>100% of parameters</td>
+              <td style={{ padding: '12px' }}>10,000+ examples</td>
+              <td style={{ padding: '12px' }}>Maximum performance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Types of Fine-tuning</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        
+        <div style={{ marginBottom: '25px' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>🔵 Full Fine-tuning</div>
+          <div style={{
+            backgroundColor: '#f9fafb',
+            padding: '15px',
+            borderRadius: '8px'
+          }}>
+            Updates <strong>all parameters</strong> of the model during training [citation:9].
+            
+            <ul style={{ marginTop: '10px', marginBottom: '5px' }}>
+              <li><strong>Pros:</strong> Maximum flexibility, best performance for specialized domains</li>
+              <li><strong>Cons:</strong> Requires massive compute (days/weeks on multiple GPUs), risk of catastrophic forgetting, needs 10k+ examples [citation:9]</li>
+            </ul>
+            
+            <div style={{
+              backgroundColor: '#fff4e6',
+              padding: '10px',
+              borderRadius: '6px',
+              marginTop: '10px',
+              fontSize: '0.95em'
+            }}>
+              <strong>When to use:</strong> Legal document analysis, medical diagnosis, scientific research — where domain expertise is critical and lighter methods fail [citation:9].
+            </div>
+          </div>
+        </div>
+
+        <div style={{ marginBottom: '25px' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>🟢 Parameter-Efficient Fine-tuning (PEFT)</div>
+          <div style={{
+            backgroundColor: '#f9fafb',
+            padding: '15px',
+            borderRadius: '8px'
+          }}>
+            Updates only a <strong>small subset of parameters</strong> (often &lt;1%) while freezing the rest [citation:4].
+            
+            <div style={{ marginTop: '15px' }}>
+              <strong>Popular PEFT Methods:</strong>
+              <ul style={{ marginTop: '5px' }}>
+                <li><strong>LoRA (Low-Rank Adaptation):</strong> Adds trainable rank decomposition matrices to attention layers [citation:4]</li>
+                <li><strong>Adapters:</strong> Small bottleneck layers inserted between transformer blocks</li>
+                <li><strong>Prefix Tuning:</strong> Optimizes continuous prompts rather than model weights</li>
+              </ul>
+            </div>
+            
+            <div style={{
+              backgroundColor: '#1f2937',
+              color: '#e5e7eb',
+              padding: '12px',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              fontSize: '0.9em',
+              marginTop: '15px'
+            }}>
+              # LoRA in practice<br/>
+              from peft import LoraConfig, get_peft_model<br/>
+              lora_config = LoraConfig(r=8, lora_alpha=32, target_modules=["q_proj", "v_proj"])<br/>
+              model = get_peft_model(base_model, lora_config)  # Only 0.1% trainable!
+            </div>
+          </div>
+        </div>
+
+        <div style={{ marginBottom: '25px' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>🟠 Instruction Fine-tuning</div>
+          <div style={{
+            backgroundColor: '#f9fafb',
+            padding: '15px',
+            borderRadius: '8px'
+          }}>
+            Trains the model on <strong>(instruction, response) pairs</strong> to teach it to follow directions [citation:1].
+            
+            <div style={{ marginTop: '10px' }}>
+              <strong>Example format:</strong><br/>
+              <code>Instruction: Summarize this article<br/>
+              Input: [article text]<br/>
+              Output: [summary]</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>The Fine-tuning Process</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <ol style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Data preparation:</strong> Collect and curate task-specific examples (typically thousands) [citation:9]</li>
+          <li><strong>Model initialization:</strong> Start from pre-trained weights (not random!)</li>
+          <li><strong>Training:</strong> Continue training with lower learning rate (1e-5 to 5e-5) to avoid destroying pre-trained knowledge</li>
+          <li><strong>Validation:</strong> Monitor for overfitting and catastrophic forgetting</li>
+          <li><strong>Deployment:</strong> Serve the specialized model (or keep base model + LoRA weights) [citation:2]</li>
+        </ol>
+      </div>
+
+      <p><strong>Key Challenges in Fine-tuning</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '15px'
+        }}>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', marginBottom: '8px', color: '#dc2626' }}>🧠 Catastrophic Forgetting</div>
+            <div style={{ color: '#4b5563' }}>
+              Model loses general knowledge while specializing. Mitigation: freeze lower layers, use regularization, or replay general data during training [citation:9].
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', marginBottom: '8px', color: '#dc2626' }}>⚡ Computational Cost</div>
+            <div style={{ color: '#4b5563' }}>
+              Full fine-tuning of large models requires multiple GPUs and days of training. PEFT methods dramatically reduce this [citation:4].
+            </div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', marginBottom: '8px', color: '#dc2626' }}>📊 Data Requirements</div>
+            <div style={{ color: '#4b5563' }}>
+              Full fine-tuning needs thousands of high-quality examples. Poor data leads to poor specialization [citation:9].
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#e6f3ff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #2563eb',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>💡 Key Takeaway:</strong> Fine-tuning adapts general LLMs for specialized tasks. For most practical applications, <strong>PEFT methods like LoRA</strong> offer the best trade-off — near full fine-tuning performance with minimal computational cost. Reserve full fine-tuning only when domain requirements justify the expense and you have sufficient data [citation:4][citation:9].
+        </p>
+      </div>
+
+      <p style={{ marginTop: '20px', fontSize: '0.9em', color: '#6b7280' }}>
+        <strong>Tools to try:</strong> <a href="https://github.com/unslothai/unsloth" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">Unsloth</a> (5x faster LoRA), <a href="https://huggingface.co/docs/peft/en/index" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">Hugging Face PEFT</a>, or <a href="https://github.com/Lightning-AI/lit-gpt" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">Lit-GPT</a>.
+      </p>
+    </div>
+  )
+  },
+  {
+  question: "What is the State of the Art and what are the key challenges in building LLMs?",
+  answer: (
+    <div>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          backgroundColor: '#e6f3ff', 
+          padding: '15px', 
+          borderRadius: '8px',
+          borderLeft: '4px solid #2563eb',
+          marginBottom: '20px'
+        }}>
+          <strong>🎯 Quick Analogy:</strong> Building LLMs today is like the space race of the 1960s — we've achieved incredible things (landing on the moon), but the challenges of cost, reliability, and accessibility remain. Every breakthrough opens new frontiers while revealing new obstacles [citation:10].
+        </div>
+      </div>
+
+      <p><strong>🏆 State of the Art: Where We Are in 2026</strong></p>
+      
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '15px' }}>1. Model Capabilities</div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Reasoning models:</strong> OpenAI o1/o3, DeepSeek R1 — can "think" step-by-step before answering, showing improved math and logic performance [citation:2]</li>
+          <li><strong>Multimodal:</strong> GPT-4o, Gemini, Claude 3 — native understanding of text, images, audio, and video</li>
+          <li><strong>Long context:</strong> 1M+ tokens (Gemini 1.5 Pro, Claude 3) — can process entire books in one go</li>
+          <li><strong>Small but capable:</strong> Llama 3.2 (1B/3B), Gemma 2 (2B/9B), Phi-3-mini (3.8B) — run on phones and edge devices [citation:10]</li>
+        </ul>
+      </div>
+
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '15px' }}>2. Architecture Innovations</div>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '15px'
+        }}>
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold' }}>Mixture of Experts (MoE)</div>
+            <div style={{ fontSize: '0.95em' }}>Only activates subsets of parameters per token (Mixtral 8x7B, DeepSeek-V3). Enormous parameter counts with efficient inference [citation:8].</div>
+          </div>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold' }}>Multi-head Latent Attention</div>
+            <div style={{ fontSize: '0.95em' }}>DeepSeek's MLA compresses KV cache, enabling much longer contexts with less memory.</div>
+          </div>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold' }}>Test-Time Compute</div>
+            <div style={{ fontSize: '0.95em' }}>Models "think" longer on hard problems — search over possible reasoning paths before answering [citation:10].</div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '15px' }}>3. Deployment & Optimization</div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>On-device LLMs:</strong> Llama 3.2 1B runs on phones with 4-bit quantization [citation:10]</li>
+          <li><strong>Quantization:</strong> GPTQ, AWQ, SmoothQuant enable 4-bit and 3-bit models with minimal quality loss [citation:10]</li>
+          <li><strong>Speculative decoding:</strong> 2-3x speedup by having small model propose tokens, large model verify [citation:10]</li>
+          <li><strong>KV cache optimization:</strong> Techniques like attention sink and cache compression reduce memory for long contexts [citation:10]</li>
+        </ul>
+      </div>
+
+      <p><strong>⚠️ Major Challenges in LLM Development</strong></p>
+      
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>1. Computational Cost & Hardware</div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Training costs:</strong> Frontier models cost $100M+ to train — accessible only to big tech and nation-states</li>
+          <li><strong>Memory bandwidth bottleneck:</strong> Inference is memory-bound, not compute-bound. Each token requires streaming all weights [citation:10]</li>
+          <li><strong>Hardware gap:</strong> Data center GPUs have 2-3 TB/s bandwidth; mobile devices have 50-90 GB/s — 30-50x gap [citation:10]</li>
+        </ul>
+      </div>
+
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>2. Data Challenges</div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Data exhaustion:</strong> We're running out of high-quality public text data — the internet has been crawled multiple times</li>
+          <li><strong>Synthetic data:</strong> Using LLMs to generate training data for other LLMs — risks model collapse if overused [citation:10]</li>
+          <li><strong>Copyright & legal:</strong> Ongoing lawsuits over training data (NYT vs. OpenAI, Authors Guild vs. OpenAI)</li>
+          <li><strong>Multilingual gap:</strong> Most training data is English — models perform worse in other languages</li>
+        </ul>
+      </div>
+
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>3. Reasoning & Reliability</div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Hallucinations:</strong> Models confidently generate false information — fundamental unsolved problem [citation:6]</li>
+          <li><strong>In-context learning limitations:</strong> Models struggle to use novel information presented in context [citation:5]</li>
+          <li><strong>Math and logic:</strong> Even advanced models fail at simple arithmetic without tool use [citation:6]</li>
+        </ul>
+      </div>
+
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>4. Alignment & Safety</div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Jailbreaks:</strong> Users find ways to bypass safety filters</li>
+          <li><strong>Bias:</strong> Models amplify training data biases around race, gender, culture</li>
+          <li><strong>Value alignment:</strong> Whose values should models follow? Different cultures have different norms</li>
+        </ul>
+      </div>
+
+      <div style={{ marginBottom: '25px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.1em', marginBottom: '10px' }}>5. Deployment Challenges</div>
+        <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
+          <li><strong>Latency:</strong> Real-time applications demand faster inference</li>
+          <li><strong>Cost at scale:</strong> Serving millions of users is expensive — pushing toward smaller, specialized models [citation:10]</li>
+          <li><strong>Privacy:</strong> Cloud-based models require sending user data to servers — on-device models address this [citation:10]</li>
+        </ul>
+      </div>
+
+      <p><strong>🔮 Emerging Solutions & Future Directions</strong></p>
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '15px'
+        }}>
+          
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#059669' }}>⚡ Small but specialized</div>
+            <div>Domain-specific small models (1B-7B) that outperform generalist giants on specific tasks</div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#059669' }}>🔧 Test-time compute</div>
+            <div>Spend more inference compute on hard problems — search, self-correction, verification [citation:10]</div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#059669' }}>📱 On-device personalization</div>
+            <div>Fine-tune models locally on user data without sending anything to the cloud [citation:10]</div>
+          </div>
+
+          <div style={{
+            backgroundColor: '#ffffff',
+            padding: '15px',
+            borderRadius: '8px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ fontWeight: 'bold', color: '#059669' }}>🧩 Mixture of Experts on edge</div>
+            <div>Making MoE practical for mobile devices (still challenging — memory bandwidth!) [citation:10]</div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ 
+        backgroundColor: '#e6f3ff', 
+        padding: '20px', 
+        borderRadius: '8px',
+        borderLeft: '4px solid #2563eb',
+        marginTop: '25px'
+      }}>
+        <p style={{ margin: 0 }}>
+          <strong>💡 Key Takeaway:</strong> The field is bifurcating — frontier models race toward general intelligence with massive compute, while applied research focuses on making models <strong>smaller, faster, cheaper, and private</strong> [citation:10]. The biggest unsolved problems are hallucinations (fundamental to next-token prediction), reasoning reliability, and making LLMs truly useful without breaking the bank. Memory bandwidth, not compute, is now the binding constraint for deployment [citation:10].
+        </p>
+      </div>
+
+      <p style={{ marginTop: '20px', fontSize: '0.9em', color: '#6b7280' }}>
+        <strong>Stay updated:</strong> Follow <a href="https://github.com/swapnilwaramwar/LLM-engineer-handbook" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">LLM Engineer Handbook</a> for latest tools, or read the <a href="https://www.edge-ai-vision.com/2026/01/on-device-llms-in-2026-what-changed-what-matters-whats-next/" style={{ color: '#2563eb', textDecoration: 'none', borderBottom: '1px solid #2563eb' }} target="_blank" rel="noopener noreferrer">Edge AI on-device LLM report</a>.
+      </p>
+    </div>
+  )
+ },
+
   ];
 
   // Track which FAQ is open
